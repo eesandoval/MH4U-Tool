@@ -15,13 +15,15 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     damagecalculator.cpp \
-    damagecalculatordialog.cpp
+    damagecalculatorwindow.cpp \
+    querytools.cpp
 
 HEADERS  += mainwindow.hpp \
     damagecalculator.hpp \
-    damagecalculatordialog.hpp
+    damagecalculatorwindow.hpp \
+    querytools.hpp
 
 FORMS    += mainwindow.ui \
-    damagecalculatordialog.ui
+    damagecalculatorwindow.ui
 
 DISTFILES +=

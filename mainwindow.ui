@@ -11,14 +11,14 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>MH4U-Tool</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QPushButton" name="damage_calculator_button">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>80</y>
+      <x>130</x>
+      <y>90</y>
       <width>141</width>
       <height>61</height>
      </rect>
@@ -38,12 +38,6 @@ Calculator</string>
      <height>25</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuFile">
-    <property name="title">
-     <string>File</string>
-    </property>
-   </widget>
-   <addaction name="menuFile"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">

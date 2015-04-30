@@ -2,7 +2,7 @@
 #define MAINWINDOW_HPP
 
 #include <QMainWindow>
-#include "damagecalculatordialog.hpp"
+#include "damagecalculatorwindow.hpp"
 
 namespace Ui {
 class MainWindow;
@@ -21,7 +21,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    damagecalculatordialog *damage_calculator_dialog;
+    damagecalculatorwindow *damageCalculatorWindow;
 };
 
 #endif // MAINWINDOW_HPP

@@ -1,0 +1,19 @@
+# Debug files
+debug/
+
+# Release files
+release/
+
+# Makefiles
+Makefile
+Makefile.Debug
+Makefile.Release
+
+# Plugin
+mh4u-tool_plugin_import.cpp
+
+# .o files
+*.o
+
+# moc files
+moc_*

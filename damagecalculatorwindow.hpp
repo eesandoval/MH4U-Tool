@@ -1,26 +1,21 @@
-#ifndef DAMAGECALCULATORDIALOG_HPP
-#define DAMAGECALCULATORDIALOG_HPP
+#ifndef DAMAGECALCULATORWINDOW_HPP
+#define DAMAGECALCULATORWINDOW_HPP
 
-#include <QDialog>
-#include <QtSql/QSqlQuery>
+#include <QMainWindow>
 #include <QString>
 #include <vector>
+#include "damagecalculator.hpp"
+#include "querytools.hpp"
 
 namespace Ui {
-class damagecalculatordialog;
+class damagecalculatorwindow;
 }
 
-class damagecalculatordialog : public QDialog
+class damagecalculatorwindow : public QMainWindow
 {
     Q_OBJECT
 
-public:
-    explicit damagecalculatordialog(QWidget *parent = 0);
-    ~damagecalculatordialog();
-
 private slots:
-    QSqlQuery createAndRunSpecificQuery(const QString& selectSQL);
-
     void on_weapon_type_list_widget_clicked(const QModelIndex &index);
 
     void on_weapon_list_widget_clicked(const QModelIndex &index);
@@ -39,11 +34,17 @@ private slots:
 
     void on_motionValueListWidget_clicked(const QModelIndex &index);
 
+public:
+    explicit damagecalculatorwindow(QWidget *parent = 0);
+    ~damagecalculatorwindow();
+
 private:
-    Ui::damagecalculatordialog *ui;
+    Ui::damagecalculatorwindow *ui;
     QString weapon;
     QString weaponType;
     QString motionValue;
+    int *motionValues;
+    int numAttacks;
 };
 
-#endif // DAMAGECALCULATORDIALOG_HPP
+#endif // DAMAGECALCULATORWINDOW_HPP
