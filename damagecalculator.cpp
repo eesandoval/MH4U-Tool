@@ -94,7 +94,7 @@ float calculate_ele(std::map<std::string, float> modifiers)
     result = modifiers["specialAttack"]/10;
     result += modifiers["elementAdd"]/10;
     element_multiplier *= modifiers["elementMul"];
-    element_multiplier *= (modifiers["elementUp"] + modifiers["HH"]);
+    element_multiplier *= (modifiers["elementUp"] + modifiers["replay"]);
     element_multiplier *= modifiers["elementAtkUp"];
     if (element_multiplier > 1.2)
         element_multiplier = 1.2;
@@ -112,6 +112,7 @@ float calculate_affinity(std::map<std::string, float> modifiers)
     result += modifiers["glove"];
     result += modifiers["criticalDraw"];
     result += modifiers["affinityUp"];
+    result += modifiers["replay"];
     if (result > 1)
         result = 1;
 
@@ -160,40 +161,35 @@ float calculate_raw_damage(bool weaknessExploit, std::string sharpness, std::str
     float trueRaw;
     float trueRawHitzone;
     float trueAffinityMultiplier;
+    float rawDamage;
+    float trueMotionValue;
 
     rawSharpnessModifier = calculate_raw_sharpness(sharpness);
     trueAffinity = calculate_affinity(all_modifiers["affinityModifiers"]);
     trueRaw = calculate_raw(all_modifiers["rawModifiers"], weaponType);
     trueRawHitzone = calculate_raw_hitzone(weaknessExploit, rawHitzone);
     trueAffinityMultiplier = calculate_weapon_affinity_multiplier(weaponType);
+    trueMotionValue = motionValue/100;
 
-    raw_damage = true_raw*(1+trueAffinityMultiplier*true_affinity)*motionValue*true_raw_hitzone*raw_sharpness_modifier;
+    rawDamage = trueRaw*(1+trueAffinityMultiplier*trueAffinity)*trueMotionValue*trueRawHitzone*rawSharpnessModifier;
 
-    return raw_damage;
+    return rawDamage;
 }
 
-float calculate_ele_damage(bool sharpness, std::map<std::string, std::map<std::string, float> > all_modifiers,
-                           float ele_hitzone, QSqlQuery query)
+float calculate_ele_damage(std::string sharpness, std::map<std::string, std::map<std::string, float> > all_modifiers,
+                           float ele_hitzone)
 {
     float ele_sharpness_modifier;
     float true_ele;
     float true_ele_hitzone;
+    float eleDamage;
 
-    if (sharpness)
-        ele_sharpness_modifier = calculate_ele_sharpness("Purple");
-    else
-        ele_sharpness_modifier = calculate_ele_sharpness("White");
+    ele_sharpness_modifier = calculate_ele_sharpness(sharpness);
 
     true_ele = calculate_ele(all_modifiers["eleModifiers"]);
     true_ele_hitzone = calculate_ele_hitzone(ele_hitzone);
 
-    ele_damage = true_ele * true_ele_hitzone * ele_sharpness_modifier;
+    eleDamage = true_ele * true_ele_hitzone * ele_sharpness_modifier;
 
-    return ele_damage;
-}
-
-float calculate_total_damage(void)
-{
-    total_damage = raw_damage + ele_damage;
-    return total_damage;
+    return eleDamage;
 }

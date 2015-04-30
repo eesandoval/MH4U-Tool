@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>756</width>
-    <height>363</height>
+    <width>888</width>
+    <height>346</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,17 +16,12 @@
   <widget class="QListWidget" name="weapon_type_list_widget">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>10</x>
      <y>20</y>
      <width>131</width>
-     <height>121</height>
+     <height>141</height>
     </rect>
    </property>
-   <item>
-    <property name="text">
-     <string>Bows</string>
-    </property>
-   </item>
    <item>
     <property name="text">
      <string>ChargeBlades</string>
@@ -34,60 +29,15 @@
    </item>
    <item>
     <property name="text">
-     <string>DualBlades</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>GreatSwords</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Hammers</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>HeavyBowguns</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
      <string>InsectGlaives</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Lances</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>LightBowguns</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>LongSwords</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Gunlances</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>SwordnShields</string>
     </property>
    </item>
   </widget>
   <widget class="QListWidget" name="weapon_list_widget">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>170</y>
+     <x>10</x>
+     <y>190</y>
      <width>191</width>
      <height>151</height>
     </rect>
@@ -96,7 +46,7 @@
   <widget class="QGroupBox" name="AuXBox">
    <property name="geometry">
     <rect>
-     <x>140</x>
+     <x>400</x>
      <y>0</y>
      <width>71</width>
      <height>141</height>
@@ -161,7 +111,7 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>120</y>
+      <y>100</y>
       <width>71</width>
       <height>22</height>
      </rect>
@@ -174,7 +124,7 @@
   <widget class="QGroupBox" name="criticalEyeBox">
    <property name="geometry">
     <rect>
-     <x>220</x>
+     <x>270</x>
      <y>0</y>
      <width>120</width>
      <height>141</height>
@@ -239,7 +189,7 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>120</y>
+      <y>100</y>
       <width>117</width>
       <height>22</height>
      </rect>
@@ -252,7 +202,7 @@
   <widget class="QGroupBox" name="gloveBox">
    <property name="geometry">
     <rect>
-     <x>470</x>
+     <x>730</x>
      <y>0</y>
      <width>151</width>
      <height>141</height>
@@ -343,10 +293,10 @@
   <widget class="QGroupBox" name="otherBox">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>320</y>
-     <width>621</width>
-     <height>41</height>
+     <x>610</x>
+     <y>170</y>
+     <width>151</width>
+     <height>141</height>
     </rect>
    </property>
    <property name="title">
@@ -368,8 +318,8 @@
    <widget class="QCheckBox" name="weaknessExploitCheckBox">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>20</y>
+      <x>0</x>
+      <y>40</y>
       <width>151</width>
       <height>22</height>
      </rect>
@@ -381,8 +331,8 @@
    <widget class="QCheckBox" name="powerCharmCheckBox">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>20</y>
+      <x>0</x>
+      <y>80</y>
       <width>121</width>
       <height>22</height>
      </rect>
@@ -394,8 +344,8 @@
    <widget class="QCheckBox" name="criticalDrawCheckBox">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>20</y>
+      <x>0</x>
+      <y>60</y>
       <width>121</width>
       <height>22</height>
      </rect>
@@ -407,8 +357,8 @@
    <widget class="QCheckBox" name="powerTalonCheckBox">
     <property name="geometry">
      <rect>
-      <x>510</x>
-      <y>20</y>
+      <x>0</x>
+      <y>100</y>
       <width>111</width>
       <height>22</height>
      </rect>
@@ -421,7 +371,7 @@
   <widget class="QGroupBox" name="elementBox">
    <property name="geometry">
     <rect>
-     <x>340</x>
+     <x>480</x>
      <y>0</y>
      <width>131</width>
      <height>141</height>
@@ -486,7 +436,7 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>120</y>
+      <y>100</y>
       <width>71</width>
       <height>22</height>
      </rect>
@@ -495,11 +445,17 @@
      <string>None</string>
     </property>
    </widget>
+   <zorder>element1RadioButton</zorder>
+   <zorder>element2RadioButton</zorder>
+   <zorder>element3RadioButton</zorder>
+   <zorder>elementAtkUpCheckBox</zorder>
+   <zorder>elementNoneRadioButton</zorder>
+   <zorder>criticalEyeBox</zorder>
   </widget>
   <widget class="QGroupBox" name="huntingHornBox">
    <property name="geometry">
     <rect>
-     <x>630</x>
+     <x>610</x>
      <y>0</y>
      <width>120</width>
      <height>141</height>
@@ -590,9 +546,9 @@
   <widget class="QListWidget" name="motionValueListWidget">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>170</y>
-     <width>141</width>
+     <x>210</x>
+     <y>190</y>
+     <width>261</width>
      <height>151</height>
     </rect>
    </property>
@@ -600,8 +556,8 @@
   <widget class="QLabel" name="weaponLabel">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>150</y>
+     <x>10</x>
+     <y>170</y>
      <width>67</width>
      <height>17</height>
     </rect>
@@ -613,7 +569,7 @@
   <widget class="QLabel" name="weaponTypeLabel">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>10</x>
      <y>0</y>
      <width>101</width>
      <height>17</height>
@@ -626,8 +582,8 @@
   <widget class="QLabel" name="motionValueLabel">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>150</y>
+     <x>220</x>
+     <y>170</y>
      <width>101</width>
      <height>17</height>
     </rect>
@@ -639,8 +595,8 @@
   <widget class="QGroupBox" name="kitchenBox">
    <property name="geometry">
     <rect>
-     <x>340</x>
-     <y>150</y>
+     <x>150</x>
+     <y>0</y>
      <width>120</width>
      <height>80</height>
     </rect>
@@ -691,8 +647,8 @@
   <widget class="QGroupBox" name="seedPillBox">
    <property name="geometry">
     <rect>
-     <x>340</x>
-     <y>240</y>
+     <x>480</x>
+     <y>170</y>
      <width>120</width>
      <height>81</height>
     </rect>
@@ -739,12 +695,16 @@
      <string>None</string>
     </property>
    </widget>
+   <zorder>mightSeedRadioButton</zorder>
+   <zorder>mightPillRadioButton</zorder>
+   <zorder>mightNoneRadioButton</zorder>
+   <zorder>otherBox</zorder>
   </widget>
   <widget class="QGroupBox" name="fortifyBox">
    <property name="geometry">
     <rect>
-     <x>470</x>
-     <y>150</y>
+     <x>480</x>
+     <y>260</y>
      <width>120</width>
      <height>80</height>
     </rect>
@@ -795,8 +755,8 @@
   <widget class="QGroupBox" name="dangerBox">
    <property name="geometry">
     <rect>
-     <x>470</x>
-     <y>240</y>
+     <x>150</x>
+     <y>80</y>
      <width>120</width>
      <height>81</height>
     </rect>
@@ -844,10 +804,10 @@
     </property>
    </widget>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>640</x>
+     <x>770</x>
      <y>160</y>
      <width>96</width>
      <height>167</height>
@@ -905,6 +865,19 @@
     </item>
    </layout>
   </widget>
+  <widget class="QLabel" name="motionValueStringLabel">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>170</y>
+     <width>181</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>[0]</string>
+   </property>
+  </widget>
   <zorder>weapon_type_list_widget</zorder>
   <zorder>weapon_list_widget</zorder>
   <zorder>AuXBox</zorder>
@@ -915,17 +888,15 @@
   <zorder>huntingHornBox</zorder>
   <zorder>motionValueListWidget</zorder>
   <zorder>layoutWidget</zorder>
-  <zorder>caclulatePushButton</zorder>
   <zorder>weaponLabel</zorder>
   <zorder>weaponTypeLabel</zorder>
   <zorder>motionValueLabel</zorder>
   <zorder>kitchenBox</zorder>
   <zorder>seedPillBox</zorder>
-  <zorder>rawDamageFloatLabel</zorder>
-  <zorder>totalDamageFloatLabel</zorder>
-  <zorder>eleDamageFloatLabel</zorder>
   <zorder>fortifyBox</zorder>
   <zorder>dangerBox</zorder>
+  <zorder>kitchenNoneRadioButton</zorder>
+  <zorder>motionValueStringLabel</zorder>
  </widget>
  <resources/>
  <connections/>

@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <QtSql/QSqlQuery>
 #include <QString>
+#include <vector>
 
 namespace Ui {
 class damagecalculatordialog;
@@ -22,8 +23,6 @@ private slots:
 
     void on_weapon_type_list_widget_clicked(const QModelIndex &index);
 
-    void on_sharpnessCheckBox_clicked();
-
     void on_weapon_list_widget_clicked(const QModelIndex &index);
 
     void on_HHNoneRadioButton_clicked();
@@ -38,11 +37,13 @@ private slots:
 
     void on_elementUpCheckBox_clicked();
 
+    void on_motionValueListWidget_clicked(const QModelIndex &index);
+
 private:
     Ui::damagecalculatordialog *ui;
-    bool sharpness;
     QString weapon;
     QString weaponType;
+    QString motionValue;
 };
 
 #endif // DAMAGECALCULATORDIALOG_HPP

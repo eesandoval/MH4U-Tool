@@ -3,10 +3,6 @@
 #include <map>
 #include <string>
 
-float raw_damage = 0.0;
-float ele_damage = 0.0;
-float total_damage = 0.0;
-
 float calculate_raw_sharpness(std::string sharpness);
 
 float calculate_ele_sharpness(std::string sharpness);
@@ -23,12 +19,10 @@ float calculate_ele_hitzone(float ele_hitzone);
 
 float calculate_weapon_affinity_multiplier(std::string weapon_type);
 
-float calculate_raw_damage(bool sharpness, std::map<std::string, std::map<std::string, float> > all_modifiers,
-                           std::string weapon_type, float raw_hitzone, float ele_hitzone);
+float calculate_raw_damage(bool weaknessExploit, std::string sharpness, std::string weaponType, float rawHitzone,
+                           float motionValue, std::map<std::string, std::map<std::string, float> > all_modifiers);
 
-float calculate_ele_damage(bool sharpness, std::map<std::string, std::map<std::string, float> > all_modifiers,
-                           std::string weapon_type, float raw_hitzone, float ele_hitzone);
-
-float calculate_total_damage(void);
+float calculate_ele_damage(std::string sharpness, std::map<std::string, std::map<std::string, float> > all_modifiers,
+                           float ele_hitzone);
 
 #endif // DAMAGECALCULATOR_HPP

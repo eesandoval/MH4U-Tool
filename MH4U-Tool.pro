@@ -23,3 +23,5 @@ HEADERS  += mainwindow.hpp \
 
 FORMS    += mainwindow.ui \
     damagecalculatordialog.ui
+
+DISTFILES +=

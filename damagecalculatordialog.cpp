@@ -1,6 +1,7 @@
 #include <iostream>
 #include "damagecalculatordialog.hpp"
 #include "ui_damagecalculatordialog.h"
+#include "damagecalculator.hpp"
 
 damagecalculatordialog::damagecalculatordialog(QWidget *parent) :
     QDialog(parent),
@@ -17,9 +18,20 @@ damagecalculatordialog::damagecalculatordialog(QWidget *parent) :
     ui->dangerNoneRadioButton->setChecked(true);
     ui->kitchenNoneRadioButton->setChecked(true);
     ui->mightNoneRadioButton->setChecked(true);
+    ui->fortifyNoneRadioButton->setChecked(true);
 
     // When HHNoneRadioButton is checked, replayCheckBox is disabled
     ui->replayCheckBox->setDisabled(true);
+
+    // To prevent errors, set defaults (each list widget to default row 0)
+    ui->weapon_type_list_widget->setCurrentRow(0);
+    on_weapon_type_list_widget_clicked(ui->weapon_type_list_widget->currentIndex());
+
+    ui->weapon_list_widget->setCurrentRow(0);
+    on_weapon_list_widget_clicked(ui->weapon_list_widget->currentIndex());
+
+    ui->motionValueListWidget->setCurrentRow(0);
+    on_motionValueListWidget_clicked(ui->motionValueListWidget->currentIndex());
 }
 
 damagecalculatordialog::~damagecalculatordialog()
@@ -37,11 +49,11 @@ QSqlQuery runQuery(const QString& sql)
 
 QSqlQuery damagecalculatordialog::createAndRunSpecificQuery(const QString& selectSQL)
 {
-    QString sql = "SELECT ";
+    QString sql = "SELECT \"";
     QSqlQuery result;
 
     sql.append(selectSQL);
-    sql.append(" FROM ");
+    sql.append("\" FROM ");
     sql.append(this->weaponType);
     sql.append(" WHERE name=\"");
     sql.append(this->weapon);
@@ -73,26 +85,19 @@ void damagecalculatordialog::on_weapon_type_list_widget_clicked(const QModelInde
         ui->weapon_list_widget->addItem(query.value(0).toString());
 
     // Update the contents of the motionValueListWidget
-    // TODO: Finish this
-    if (this->weaponType == "ChargeBlades")
-    {
-        QString attacks[] = {"Draw (Sword) [22]", "Upward Slash [12]", "Back Slash [17]",
-                            "Round Slash [30]", "Charge [16]", "Charge 1 [30]",
-                            "Charge 2 [20]", "Jump (Sword) [22]", "Draw (Axe) [41]",
-                            "Forward Slam [44]", "Upward Swipe [28]", "Downward Chop [41]",
-                            "Jump (Axe) [44]", "Burst 1 [14/23]", "Burst 2 [61/78]", "Burst 3 [40/80]",
-                            "Ultra Burst [maxInt]"};
-        int attacksSize = 17;
-        for (int i = 0; i < attacksSize; ++i)
-        {
-            ui->motionValueListWidget->addItem(attacks[i]);
-        }
-    }
-}
+    sql = "SELECT name FROM MotionValues WHERE \"weapon type\"=\"";
+    sql.append(this->weaponType);
+    sql.append("\"");
+    query = runQuery(sql);
+    while(query.next())
+        ui->motionValueListWidget->addItem(query.value(0).toString());
 
-void damagecalculatordialog::on_sharpnessCheckBox_clicked()
-{
-    this->sharpness = ui->sharpnessCheckBox->isChecked();
+    // To prevent errors, set defaults (each list widget to default row 0)
+    ui->weapon_list_widget->setCurrentRow(0);
+    on_weapon_list_widget_clicked(ui->weapon_list_widget->currentIndex());
+
+    ui->motionValueListWidget->setCurrentRow(0);
+    on_motionValueListWidget_clicked(ui->motionValueListWidget->currentIndex());
 }
 
 void damagecalculatordialog::on_weapon_list_widget_clicked(const QModelIndex &index)
@@ -102,7 +107,9 @@ void damagecalculatordialog::on_weapon_list_widget_clicked(const QModelIndex &in
 
 void damagecalculatordialog::on_HHNoneRadioButton_clicked()
 {
-    ui->replayCheckBox->setDisabled(true);
+    if (!ui->attackUpSRadioButton->isChecked() && !ui->attackUpLRadioButton->isChecked() &&
+            !ui->elementUpCheckBox->isChecked() && !ui->affinityUpCheckBox->isChecked())
+        ui->replayCheckBox->setDisabled(true);
 }
 
 void damagecalculatordialog::on_attackUpSRadioButton_clicked()
@@ -143,11 +150,19 @@ void damagecalculatordialog::on_caclulatePushButton_clicked()
     std::map<std::string, float> rawModifiers;
     std::map<std::string, float> eleModifiers;
     std::map<std::string, float> affinityModifiers;
-    std::map<std::string, float> rawHitzoneModifiers;
-    std::map<std::string, float> eleHitzoneModifiers;
     QSqlQuery query;
+    QString sharpness;
+    QString temp;
+    int motionValue;
 
     // The following gets messy...
+    // Need to get sharpness
+    if (ui->sharpnessCheckBox->isChecked())
+        query = createAndRunSpecificQuery("sharpness+1");
+    else
+        query = createAndRunSpecificQuery("sharpness");
+    sharpness = query.value(0).toString();
+
     // Need to get all raw modifiers
     query = createAndRunSpecificQuery("attack");
     rawModifiers["attack"] = query.value(0).toString().toFloat();
@@ -203,7 +218,7 @@ void damagecalculatordialog::on_caclulatePushButton_clicked()
     else
         rawModifiers["HH"] = 1;
 
-    if (ui->replayCheckBox->isChecked() && rawModifiers["HH"] > 1)
+    if (ui->replayCheckBox->isChecked() && ui->replayCheckBox->isEnabled())
         rawModifiers["replay"] = 0.05;
     else
         rawModifiers["replay"] = 0;
@@ -257,7 +272,7 @@ void damagecalculatordialog::on_caclulatePushButton_clicked()
     else
         eleModifiers["elementUp"] = 1;
 
-    if (ui->replayCheckBox->isChecked() && eleModifiers["elementUp"] > 1)
+    if (ui->replayCheckBox->isChecked() && ui->replayCheckBox->isEnabled())
         eleModifiers["replay"] = 0.05;
     else
         eleModifiers["replay"] = 0;
@@ -298,5 +313,55 @@ void damagecalculatordialog::on_caclulatePushButton_clicked()
         affinityModifiers["affinityUp"] = 0.3;
     else
         affinityModifiers["affinityUp"] = 0;
+
+    if (ui->replayCheckBox->isChecked() && ui->replayCheckBox->isEnabled())
+        affinityModifiers["replay"] = 0.05;
+    else
+        affinityModifiers["replay"] = 0;
+
+    allModifiers["rawModifiers"] = rawModifiers;
+    allModifiers["affinityModifiers"] = affinityModifiers;
+    allModifiers["eleModifiers"] = eleModifiers;
+
+    temp = "SELECT \"motion value\" FROM MotionValues WHERE \"weapon type\"=\"";
+    temp.append(this->weaponType);
+    temp.append("\" AND name=\"");
+    temp.append(this->motionValue);
+    temp.append("\"");
+    query = runQuery(temp);
+    query.next();
+    motionValue = query.value(0).toInt();
+
+    float raw = calculate_raw_damage(ui->weaknessExploitCheckBox->isChecked(),
+                                     sharpness.toStdString(), this->weaponType.toStdString(),
+                                     0.45, motionValue, allModifiers);
+    float ele = calculate_ele_damage(sharpness.toStdString(), allModifiers, 0.3);
+    float total = raw + ele;
+
+    temp = QString::number(raw, 'g', 4);
+    ui->rawDamageFloatLabel->setText(temp);
+
+    temp = QString::number(ele, 'g', 4);
+    ui->eleDamageFloatLabel->setText(temp);
+
+    temp = QString::number(total, 'g', 4);
+    ui->totalDamageFloatLabel->setText(temp);
 }
 
+void damagecalculatordialog::on_motionValueListWidget_clicked(const QModelIndex &index)
+{
+    QString sql;
+    QSqlQuery query;
+
+    this->motionValue = index.data().toString();
+
+    sql = "SELECT \"motion value text\" FROM MotionValues WHERE \"name\"=\"";
+    sql.append(this->motionValue);
+    sql.append("\" AND \"weapon type\"=\"");
+    sql.append(this->weaponType);
+    sql.append("\"");
+    query = runQuery(sql);
+    query.next();
+
+    ui->motionValueStringLabel->setText(query.value(0).toString());
+}
