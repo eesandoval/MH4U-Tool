@@ -85,6 +85,7 @@ float calculate_raw(std::map<std::string, float> modifiers, std::string weapon_t
 
     return result;
 }
+//asdasdad
 
 float calculate_ele(std::map<std::string, float> modifiers)
 {
