@@ -17,3 +17,6 @@ mh4u-tool_plugin_import.cpp
 
 # moc files
 moc_*
+
+#ui files
+ui_*

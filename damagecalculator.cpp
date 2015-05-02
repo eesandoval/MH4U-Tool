@@ -41,7 +41,10 @@ float calculate_ele_sharpness(std::string sharpness)
     else if (sharpness == "Red")
         result = 0.25;
     else
+    {
+        std::cout << "Error: unknown sharpness " << sharpness << std::endl;
         exit(1);
+    }
     return result;
 }
 
@@ -74,6 +77,7 @@ float calculate_raw(std::map<std::string, float> modifiers, std::string weapon_t
         weapon_modifier = 1.2;
 
     result = modifiers["attack"]/weapon_modifier;
+    result += modifiers["hone"];
     result += modifiers["AuX"];
     result += modifiers["kitchen"];
     result += modifiers["seed"];
@@ -82,6 +86,9 @@ float calculate_raw(std::map<std::string, float> modifiers, std::string weapon_t
     result *= (modifiers["HH"] + modifiers["replay"]);
     result *= modifiers["danger"];
     result *= modifiers["fortify"];
+    result *= modifiers["weaponSpecific"];
+    result *= modifiers["artillery"];
+    result *= modifiers["wystone"];
 
     return result;
 }
@@ -99,6 +106,7 @@ float calculate_ele(std::map<std::string, float> modifiers)
     if (element_multiplier > 1.2)
         element_multiplier = 1.2;
     result *= element_multiplier;
+    result *= modifiers["wystone"];
 
     return result;
 }
@@ -124,7 +132,7 @@ float calculate_raw_hitzone(bool weaknessExploit, float rawHitzone)
     float result;
 
     result = rawHitzone;
-    if (result > 0.45 && weaknessExploit)
+    if (result >= 0.44 && weaknessExploit)
         result += 0.05;
 
     return result;
@@ -153,6 +161,21 @@ float calculate_weapon_affinity_multiplier(std::string weapon_type)
     return result;
 }
 
+float calculateEleAffinity(bool critElement, std::map<std::string, float> modifiers)
+{
+    float result;
+    float affinity;
+
+    affinity = calculate_affinity(modifiers);
+
+    if (critElement)
+        result = (1 + 0.25 * affinity);
+    else
+        result = 1;
+
+    return result;
+}
+
 float calculate_raw_damage(bool weaknessExploit, std::string sharpness, std::string weaponType, float rawHitzone,
                            float motionValue, std::map<std::string, std::map<std::string, float> > all_modifiers)
 {
@@ -172,24 +195,27 @@ float calculate_raw_damage(bool weaknessExploit, std::string sharpness, std::str
     trueMotionValue = motionValue/100;
 
     rawDamage = trueRaw*(1+trueAffinityMultiplier*trueAffinity)*trueMotionValue*trueRawHitzone*rawSharpnessModifier;
-
+    std::cout << rawDamage << std::endl;
     return rawDamage;
 }
 
 float calculate_ele_damage(std::string sharpness, std::map<std::string, std::map<std::string, float> > all_modifiers,
-                           float ele_hitzone)
+                           float ele_hitzone, bool critElement)
 {
     float ele_sharpness_modifier;
     float true_ele;
     float true_ele_hitzone;
     float eleDamage;
+    float eleAffinity;
 
     ele_sharpness_modifier = calculate_ele_sharpness(sharpness);
 
     true_ele = calculate_ele(all_modifiers["eleModifiers"]);
     true_ele_hitzone = calculate_ele_hitzone(ele_hitzone);
 
-    eleDamage = true_ele * true_ele_hitzone * ele_sharpness_modifier;
+    eleAffinity = calculateEleAffinity(critElement, all_modifiers["affinityModifiers"]);
+
+    eleDamage = true_ele * true_ele_hitzone * ele_sharpness_modifier * eleAffinity;
 
     return eleDamage;
 }

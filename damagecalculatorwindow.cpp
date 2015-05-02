@@ -19,6 +19,14 @@ damagecalculatorwindow::damagecalculatorwindow(QWidget *parent) :
     ui->kitchenNoneRadioButton->setChecked(true);
     ui->mightNoneRadioButton->setChecked(true);
     ui->fortifyNoneRadioButton->setChecked(true);
+    ui->weaponSpecificNoneRadioButton->setChecked(true);
+    ui->artilleryNoneRadioButton->setChecked(true);
+
+    // Set up the spin boxes
+    ui->rawHitzoneSpinBox->setMaximum(200);
+    ui->rawHitzoneSpinBox->setMinimum(0);
+    ui->eleHitzoneSpinBox->setMaximum(200);
+    ui->eleHitzoneSpinBox->setMinimum(0);
 
     // When HHNoneRadioButton is checked, replayCheckBox is disabled
     ui->replayCheckBox->setDisabled(true);
@@ -39,19 +47,16 @@ damagecalculatorwindow::damagecalculatorwindow(QWidget *parent) :
     ui->AuLKitchenRadioButton->setChecked(true);
     ui->powerCharmCheckBox->setChecked(true);
     ui->powerTalonCheckBox->setChecked(true);
+    ui->rawHitzoneSpinBox->setValue(45);
+    ui->eleHitzoneSpinBox->setValue(30);
 
     // Set the tab names on damageTabWidget
     ui->damageTabWidget->setTabText(0, "Basic Overview");
     ui->damageTabWidget->setTabText(1, "View Details");
 
     // These checkboxes are not yet available
-    ui->criticalElementCheckBox->setDisabled(true);
-    ui->rawHoneCheckBox->setDisabled(true);
-    ui->wyvernStoneEleCheckBox->setDisabled(true);
-    ui->wyvernStoneRawCheckBox->setDisabled(true);
+    ui->addWeaponPushButton->setDisabled(true);
 
-    // The second tab is yet avaiable
-    ui->damageTabWidget->setDisabled(true);
 }
 
 damagecalculatorwindow::~damagecalculatorwindow()
@@ -152,6 +157,9 @@ void damagecalculatorwindow::on_caclulatePushButton_clicked()
     float raw = 0;
     float ele = 0;
     float total = 0;
+    float rawHitzone;
+    float eleHitzone;
+    bool artillery;
 
     // The following gets messy...
     // Need to get sharpness
@@ -165,6 +173,60 @@ void damagecalculatorwindow::on_caclulatePushButton_clicked()
     query = findQuery("attack", this->weaponType, "name", this->weapon);
     rawModifiers["attack"] = query.value(0).toString().toFloat();
 
+    // First the weapon specific
+    if (ui->CoBRadioButton->isChecked())
+        rawModifiers["weaponSpecific"] = 1.05;
+    else if (ui->critDistanceRadioButton->isChecked())
+        rawModifiers["weaponSpecific"] = 1.50;
+    else if (ui->boostModeRadioButton->isChecked())
+    {
+        if (this->motionValue.contains("Axe"))
+            rawModifiers["weaponSpecific"] = 1.20;
+        else
+            rawModifiers["weaponSpecific"] = 1;
+    }
+    else if (ui->demonModeRadioButton->isChecked())
+        rawModifiers["weaponSpecific"] = 1.15;
+    else if (ui->tripleUpRadioButton->isChecked())
+        rawModifiers["weaponSpecific"] = 1.25;
+    else
+        rawModifiers["weaponSpecific"] = 1;
+
+    // Check if they honed for attack
+    if (ui->rawHoneCheckBox->isChecked())
+        rawModifiers["hone"] = 20;
+    else
+        rawModifiers["hone"] = 0;
+
+    // Check if the motion value can have artillery applied to it
+    if (!ui->artilleryNoneRadioButton->isChecked())
+    {
+        if (this->weaponType == "ChargeBlades")
+        {
+            if (this->motionValue.contains("Discharge") || (this->motionValue.contains("AED") &&
+                                                            !this->motionValue.contains("Phials Empty")))
+                artillery = true;
+        }
+        else if (this->weaponType == "Gunlances")
+        {
+            if (this->motionValue.contains("Burst"))
+                artillery = true;
+        }
+    }
+    // If artillery is true, add it to the modifier
+    if (artillery)
+    {
+        if (ui->artilleryNoviceRadioButton->isChecked())
+            rawModifiers["artillery"] = 1.1;
+        else if (ui->artilleryExpertRadioButton->isChecked())
+            rawModifiers["artillery"] = 1.2;
+        else if (ui->artilleryGodRadioButton->isChecked())
+            rawModifiers["artillery"] = 1.3;
+    }
+    else
+        rawModifiers["artillery"] = 1;
+
+    // Figure out which Attack up skill
     if (ui->AuSRadioButton->isChecked())
         rawModifiers["AuX"] = 10;
     else if (ui->AuMRadioButton->isChecked())
@@ -235,8 +297,13 @@ void damagecalculatorwindow::on_caclulatePushButton_clicked()
     else
         rawModifiers["fortify"] = 1;
 
-    // Need to get all element modifiers
+    // If they activated their wystone for attack, apply it
+    if (ui->wyvernStoneRawCheckBox->isChecked())
+        rawModifiers["wystone"] = 1.20;
+    else
+        rawModifiers["wystone"] = 1;
 
+    // Need to get all element modifiers
     query = findQuery("special attack", this->weaponType, "name", this->weapon);
     eleModifiers["specialAttack"] = query.value(0).toString().toFloat();
 
@@ -276,6 +343,11 @@ void damagecalculatorwindow::on_caclulatePushButton_clicked()
     else
         eleModifiers["replay"] = 0;
 
+    // Check if they activated their wyvern stone for element
+    if (ui->wyvernStoneEleCheckBox->isChecked())
+        eleModifiers["wystone"] = 1.20;
+    else
+        eleModifiers["wystone"] = 1;
 
     // Need to get all affinity modifiers
     query = findQuery("affinity", this->weaponType, "name", this->weapon);
@@ -322,26 +394,52 @@ void damagecalculatorwindow::on_caclulatePushButton_clicked()
     allModifiers["affinityModifiers"] = affinityModifiers;
     allModifiers["eleModifiers"] = eleModifiers;
 
+    // Get the hitzone values
+    rawHitzone = ui->rawHitzoneSpinBox->value();
+    eleHitzone = ui->eleHitzoneSpinBox->value();
+
+    rawHitzone = rawHitzone/100;
+    eleHitzone = eleHitzone/100;
+
     // Now to get the motion values from the database, and finally perform calculations
     for (int i = 0; i < this->numAttacks; ++i)
     {
+        std::cout << "Raw is " << raw << std::endl;
+        std::cout << "Ele is " << ele << std::endl;
         raw += calculate_raw_damage(ui->weaknessExploitCheckBox->isChecked(),
                                     sharpness.toStdString(), this->weaponType.toStdString(),
-                                    0.45, this->motionValues[i], allModifiers);
-        ele += calculate_ele_damage(sharpness.toStdString(), allModifiers, 0.3);
+                                    rawHitzone, this->motionValues[i], allModifiers);
+        ele += calculate_ele_damage(sharpness.toStdString(), allModifiers, eleHitzone,
+                                    ui->criticalElementCheckBox->isChecked());
+        std::cout << "Raw is " << raw << std::endl;
+        std::cout << "Ele is " << ele << std::endl;
     }
 
     total = raw + ele;
 
     // Set the text labels
-    temp = QString::number(raw, 'g', 4);
+    temp = QString::number(raw, 'g', 5);
     ui->rawDamageFloatLabel->setText(temp);
 
-    temp = QString::number(ele, 'g', 4);
+    temp = QString::number(ele, 'g', 5);
     ui->eleDamageFloatLabel->setText(temp);
 
-    temp = QString::number(total, 'g', 4);
+    temp = QString::number(total, 'g', 5);
     ui->totalDamageFloatLabel->setText(temp);
+
+    temp = QString::number(raw/this->numAttacks, 'g', 5);
+    ui->averageRawDamagePerLabel->setText(temp);
+
+    temp = QString::number(ele/this->numAttacks, 'g', 5);
+    ui->averageEleDamagePerLabel->setText(temp);
+
+    temp = QString::number(total/this->numAttacks, 'g', 5);
+    ui->averageTotalNumberPerLabel->setText(temp);
+
+    temp = QString::number(this->numAttacks);
+    ui->numAttacksLabel->setText(temp);
+
+    ui->motionValueNameLabel->setText(this->motionValue);
 }
 
 void damagecalculatorwindow::on_motionValueListWidget_clicked(const QModelIndex &index)

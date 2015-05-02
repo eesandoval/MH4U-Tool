@@ -2,6 +2,7 @@
 #define DAMAGECALCULATOR_HPP
 #include <map>
 #include <string>
+#include <iostream>
 
 float calculate_raw_sharpness(std::string sharpness);
 
@@ -23,6 +24,6 @@ float calculate_raw_damage(bool weaknessExploit, std::string sharpness, std::str
                            float motionValue, std::map<std::string, std::map<std::string, float> > all_modifiers);
 
 float calculate_ele_damage(std::string sharpness, std::map<std::string, std::map<std::string, float> > all_modifiers,
-                           float ele_hitzone);
+                           float ele_hitzone, bool critElement);
 
 #endif // DAMAGECALCULATOR_HPP

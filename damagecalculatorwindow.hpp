@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QString>
 #include <vector>
+#include <iostream>
 #include "damagecalculator.hpp"
 #include "querytools.hpp"
 
