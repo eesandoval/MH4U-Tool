@@ -2,7 +2,6 @@
 #define DAMAGECALCULATOR_HPP
 #include <map>
 #include <string>
-#include <iostream>
 
 float calculate_raw_sharpness(std::string sharpness);
 

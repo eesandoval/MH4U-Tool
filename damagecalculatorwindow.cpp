@@ -404,15 +404,11 @@ void damagecalculatorwindow::on_caclulatePushButton_clicked()
     // Now to get the motion values from the database, and finally perform calculations
     for (int i = 0; i < this->numAttacks; ++i)
     {
-        std::cout << "Raw is " << raw << std::endl;
-        std::cout << "Ele is " << ele << std::endl;
         raw += calculate_raw_damage(ui->weaknessExploitCheckBox->isChecked(),
                                     sharpness.toStdString(), this->weaponType.toStdString(),
                                     rawHitzone, this->motionValues[i], allModifiers);
         ele += calculate_ele_damage(sharpness.toStdString(), allModifiers, eleHitzone,
                                     ui->criticalElementCheckBox->isChecked());
-        std::cout << "Raw is " << raw << std::endl;
-        std::cout << "Ele is " << ele << std::endl;
     }
 
     total = raw + ele;

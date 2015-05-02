@@ -41,10 +41,7 @@ float calculate_ele_sharpness(std::string sharpness)
     else if (sharpness == "Red")
         result = 0.25;
     else
-    {
-        std::cout << "Error: unknown sharpness " << sharpness << std::endl;
         exit(1);
-    }
     return result;
 }
 
@@ -196,7 +193,7 @@ float calculate_raw_damage(bool weaknessExploit, std::string sharpness, std::str
     trueMotionValue = motionValue/100;
 
     rawDamage = trueRaw*(1+trueAffinityMultiplier*trueAffinity)*trueMotionValue*trueRawHitzone*rawSharpnessModifier;
-    std::cout << rawDamage << std::endl;
+
     return rawDamage;
 }
 
