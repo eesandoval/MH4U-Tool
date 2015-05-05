@@ -1,5 +1,6 @@
 #include "damagecalculatorwindow.hpp"
 #include "ui_damagecalculatorwindow.h"
+#include <iostream>
 
 damagecalculatorwindow::damagecalculatorwindow(QWidget *parent) :
     QMainWindow(parent),
@@ -8,6 +9,7 @@ damagecalculatorwindow::damagecalculatorwindow(QWidget *parent) :
     ui->setupUi(this);
 
     motionValues = new int[20];
+    customWeapon = false;
 
     // Set up the "None" radio buttons
     ui->AuXNoneRadioButton->setChecked(true);
@@ -54,8 +56,8 @@ damagecalculatorwindow::damagecalculatorwindow(QWidget *parent) :
     ui->damageTabWidget->setTabText(0, "Basic Overview");
     ui->damageTabWidget->setTabText(1, "View Details");
 
-    // These checkboxes are not yet available
-    ui->addWeaponPushButton->setDisabled(true);
+    // Update the custom weapons
+    damagecalculatorwindow::updateCustomWeaponsListWidget();
 
 }
 
@@ -65,18 +67,81 @@ damagecalculatorwindow::~damagecalculatorwindow()
     delete this->motionValues;
 }
 
+void damagecalculatorwindow::updateCustomWeaponsListWidget()
+{
+    std::ifstream inFile;
+    std::string line;
+    weapon temp;
+    int count = 0;
+
+    this->customWeapons.clear();
+    ui->customWeaponsListWidget->clear();
+
+    inFile.open("MH4U-Tool-Custom-Weapons.txt");
+    if (inFile.is_open())
+    {
+        std::cout << "We Opened!" << std::endl;
+        while(std::getline(inFile, line))
+        {
+            switch(count++)
+            {
+            case 0:
+                temp.name = QString::fromStdString(line);
+                break;
+            case 1:
+                temp.weapon_type = QString::fromStdString(line);
+                break;
+            case 2:
+                temp.attack = QString::fromStdString(line).toInt();
+                break;
+            case 3:
+                temp.special = QString::fromStdString(line);
+                break;
+            case 4:
+                temp.special_attack = QString::fromStdString(line).toInt();
+                break;
+            case 5:
+                temp.affinity = QString::fromStdString(line).toFloat();
+                break;
+            case 6:
+                temp.sharpness = QString::fromStdString(line);
+                break;
+            case 7:
+                temp.sharpness1 = QString::fromStdString(line);
+                break;
+            case 8:
+                count = 0;
+                temp.rarity = 10;
+                temp.special2 = "";
+                temp.special_attack2 = 0;
+                temp.num_slots = 0;
+                temp.defense = 0;
+                this->customWeapons.push_back(temp);
+                break;
+            default:
+                std::cout << "Error" << std::endl;
+            }
+        }
+        inFile.close();
+    }
+    for (unsigned int i = 0; i < this->customWeapons.size(); ++i)
+        ui->customWeaponsListWidget->addItem(this->customWeapons[i].name);
+    ui->customWeaponsListWidget->addItem("None");
+
+    // Set it back to None
+    ui->customWeaponsListWidget->setCurrentRow(this->customWeapons.size());
+}
+
 void damagecalculatorwindow::on_weapon_type_list_widget_clicked(const QModelIndex &index)
 {
     QSqlQuery query;
     QString sql = "SELECT name FROM ";
 
     // Find out if the weapon_list_widget is empty, and if not empty it
-    if (ui->weapon_list_widget->count() > 0)
-        ui->weapon_list_widget->clear();
+    ui->weapon_list_widget->clear();
 
     // Find out if motionValueListWidget is empty, and if not empty it
-    if (ui->motionValueListWidget->count() > 0)
-        ui->motionValueListWidget->clear();
+    ui->motionValueListWidget->clear();
 
     // Update the contents of the weapon_list_widget
     this->weaponType = index.data(Qt::DisplayRole).toString();
@@ -99,11 +164,44 @@ void damagecalculatorwindow::on_weapon_type_list_widget_clicked(const QModelInde
 
     ui->motionValueListWidget->setCurrentRow(0);
     on_motionValueListWidget_clicked(ui->motionValueListWidget->currentIndex());
+
+}
+
+void damagecalculatorwindow::on_weapon_type_list_widget_activated(const QModelIndex &index)
+{
+    damagecalculatorwindow::on_weapon_type_list_widget_clicked(index);
 }
 
 void damagecalculatorwindow::on_weapon_list_widget_clicked(const QModelIndex &index)
 {
-    this->weapon = index.data(Qt::DisplayRole).toString();
+    QString sql;
+    QSqlQuery query;
+
+    this->weaponName = index.data(Qt::DisplayRole).toString();
+
+    // Reset this' appropriate weapon type
+    this->weaponType = ui->weapon_type_list_widget->currentItem()->data(Qt::DisplayRole).toString();
+
+    // When a weapon is selected here, set the customs to none
+    ui->customWeaponsListWidget->setCurrentRow(this->customWeapons.size());
+
+    // If it's not already updated, update the motion values
+    ui->motionValueListWidget->clear();
+    sql = "SELECT name FROM MotionValues WHERE \"weapon type\"=\"";
+    sql.append(this->weaponType);
+    sql.append("\"");
+    query = runQuery(sql);
+    while(query.next())
+        ui->motionValueListWidget->addItem(query.value(0).toString());
+
+    // Set the defaults for the motion values (prevent errors)
+    ui->motionValueListWidget->setCurrentRow(0);
+    on_motionValueListWidget_clicked(ui->motionValueListWidget->currentIndex());
+}
+
+void damagecalculatorwindow::on_weapon_list_widget_activated(const QModelIndex &index)
+{
+    damagecalculatorwindow::on_weapon_list_widget_clicked(index);
 }
 
 void damagecalculatorwindow::on_HHNoneRadioButton_clicked()
@@ -145,13 +243,70 @@ void damagecalculatorwindow::on_elementUpCheckBox_clicked()
         ui->replayCheckBox->setDisabled(true);
 }
 
+void damagecalculatorwindow::updateChosenWeapon()
+{
+    unsigned int row = ui->customWeaponsListWidget->currentRow();
+    QSqlQuery query;
+
+    if (row != this->customWeapons.size())
+    {
+        // Custom weapon selected
+        this->chosenWeapon = this->customWeapons[row];
+    }
+    else
+    {
+        // Regular weapon selected
+        // Name
+        this->chosenWeapon.name = this->weaponName;
+
+        // Weapon Type
+        this->chosenWeapon.weapon_type = this->weaponType;
+
+        // Attack
+        query = findQuery("attack", this->weaponType, "name", this->chosenWeapon.name);
+        this->chosenWeapon.attack = query.value(0).toString().toInt();
+
+        // Special
+        query = findQuery("special", this->weaponType, "name", this->weaponName);
+        this->chosenWeapon.special = query.value(0).toString();
+        if (this->chosenWeapon.special == "Fire" || this->chosenWeapon.special == "Ice" ||
+                this->chosenWeapon.special == "Water" || this->chosenWeapon.special == "Dragon" ||
+                this->chosenWeapon.special == "Thunder")
+        {
+            query = findQuery("special attack", this->weaponType, "name", this->weaponName);
+            this->chosenWeapon.special_attack = query.value(0).toString().toInt();
+        }
+        else
+        {
+            this->chosenWeapon.special_attack = 0;
+        }
+
+        // Affinity
+        query = findQuery("affinity", this->weaponType, "name", this->weaponName);
+        this->chosenWeapon.affinity = query.value(0).toString().toInt();
+
+        // Sharpness
+        query = findQuery("sharpness", this->weaponType, "name", this->weaponName);
+        this->chosenWeapon.sharpness = query.value(0).toString();
+        query = findQuery("sharpness+1", this->weaponType, "name", this->weaponName);
+        this->chosenWeapon.sharpness1 = query.value(0).toString();
+
+        std::cout << this->chosenWeapon.sharpness.toStdString() << std::endl;
+        std::cout << this->chosenWeapon.sharpness1.toStdString() << std::endl;
+
+        // Other maybe one day query for each item
+        this->chosenWeapon.rarity = 10;
+        this->chosenWeapon.defense = 0;
+        this->chosenWeapon.num_slots = 0;
+    }
+}
+
 void damagecalculatorwindow::on_caclulatePushButton_clicked()
 {
     std::map<std::string, std::map<std::string, float> > allModifiers;
     std::map<std::string, float> rawModifiers;
     std::map<std::string, float> eleModifiers;
     std::map<std::string, float> affinityModifiers;
-    QSqlQuery query;
     QString sharpness;
     QString temp;
     float raw = 0;
@@ -162,16 +317,17 @@ void damagecalculatorwindow::on_caclulatePushButton_clicked()
     bool artillery;
 
     // The following gets messy...
+    // Update the chosen weapon
+    damagecalculatorwindow::updateChosenWeapon();
+
     // Need to get sharpness
     if (ui->sharpnessCheckBox->isChecked())
-        query = findQuery("sharpness+1", this->weaponType, "name", this->weapon);
+        sharpness = this->chosenWeapon.sharpness1;
     else
-        query = findQuery("sharpness", this->weaponType, "name", this->weapon);
-    sharpness = query.value(0).toString();
+        sharpness = this->chosenWeapon.sharpness;
 
     // Need to get all raw modifiers
-    query = findQuery("attack", this->weaponType, "name", this->weapon);
-    rawModifiers["attack"] = query.value(0).toString().toFloat();
+    rawModifiers["attack"] = float(this->chosenWeapon.attack);
 
     // First the weapon specific
     if (ui->CoBRadioButton->isChecked())
@@ -201,13 +357,13 @@ void damagecalculatorwindow::on_caclulatePushButton_clicked()
     // Check if the motion value can have artillery applied to it
     if (!ui->artilleryNoneRadioButton->isChecked())
     {
-        if (this->weaponType == "ChargeBlades")
+        if (this->chosenWeapon.weapon_type == "ChargeBlades")
         {
             if (this->motionValue.contains("Discharge") || (this->motionValue.contains("AED") &&
                                                             !this->motionValue.contains("Phials Empty")))
                 artillery = true;
         }
-        else if (this->weaponType == "Gunlances")
+        else if (this->chosenWeapon.weapon_type == "Gunlances")
         {
             if (this->motionValue.contains("Burst"))
                 artillery = true;
@@ -304,8 +460,7 @@ void damagecalculatorwindow::on_caclulatePushButton_clicked()
         rawModifiers["wystone"] = 1;
 
     // Need to get all element modifiers
-    query = findQuery("special attack", this->weaponType, "name", this->weapon);
-    eleModifiers["specialAttack"] = query.value(0).toString().toFloat();
+    eleModifiers["specialAttack"] = float(this->chosenWeapon.special_attack);
 
     if (ui->element1RadioButton->isChecked())
     {
@@ -350,8 +505,7 @@ void damagecalculatorwindow::on_caclulatePushButton_clicked()
         eleModifiers["wystone"] = 1;
 
     // Need to get all affinity modifiers
-    query = findQuery("affinity", this->weaponType, "name", this->weapon);
-    affinityModifiers["affinity"] = query.value(0).toString().toFloat();
+    affinityModifiers["affinity"] = float(this->chosenWeapon.affinity);
 
     if (ui->criticalEye1RadioButton->isChecked())
         affinityModifiers["criticalEye"] = 0.10;
@@ -405,7 +559,7 @@ void damagecalculatorwindow::on_caclulatePushButton_clicked()
     for (int i = 0; i < this->numAttacks; ++i)
     {
         raw += calculate_raw_damage(ui->weaknessExploitCheckBox->isChecked(),
-                                    sharpness.toStdString(), this->weaponType.toStdString(),
+                                    sharpness.toStdString(), this->chosenWeapon.weapon_type.toStdString(),
                                     rawHitzone, this->motionValues[i], allModifiers);
         ele += calculate_ele_damage(sharpness.toStdString(), allModifiers, eleHitzone,
                                     ui->criticalElementCheckBox->isChecked());
@@ -453,7 +607,6 @@ void damagecalculatorwindow::on_motionValueListWidget_clicked(const QModelIndex 
     query = findQuery("motion value text", "MotionValues", "name",
                       this->motionValue, "weapon type", this->weaponType);
     temp = query.value(0).toString();
-
     for (int i = 0; i < this->numAttacks; ++i)
     {
         temp2 = "";
@@ -464,4 +617,36 @@ void damagecalculatorwindow::on_motionValueListWidget_clicked(const QModelIndex 
     }
 
     ui->motionValueStringLabel->setText(query.value(0).toString());
+}
+
+void damagecalculatorwindow::on_motionValueListWidget_activated(const QModelIndex &index)
+{
+    damagecalculatorwindow::on_motionValueListWidget_clicked(index);
+}
+
+void damagecalculatorwindow::on_addWeaponPushButton_clicked()
+{
+    addWeaponDialog = new addweapondialog(this);
+    addWeaponDialog->exec();
+    damagecalculatorwindow::updateCustomWeaponsListWidget();
+}
+
+void damagecalculatorwindow::on_customWeaponsListWidget_clicked(const QModelIndex &index)
+{
+    QString sql;
+    QSqlQuery query;
+
+    if (index.data().toString() != "None")
+    {
+        this->weaponType = this->customWeapons[index.row()].weapon_type;
+        ui->motionValueListWidget->clear();
+        sql = "SELECT name FROM MotionValues WHERE \"weapon type\"=\"";
+        sql.append(this->weaponType);
+        sql.append("\"");
+        query = runQuery(sql);
+        while(query.next())
+            ui->motionValueListWidget->addItem(query.value(0).toString());
+        ui->motionValueListWidget->setCurrentRow(0);
+        damagecalculatorwindow::on_motionValueListWidget_clicked(ui->motionValueListWidget->currentIndex());
+    }
 }

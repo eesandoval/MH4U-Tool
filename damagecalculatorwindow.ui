@@ -70,7 +70,7 @@
     <property name="geometry">
      <rect>
       <x>310</x>
-      <y>270</y>
+      <y>250</y>
       <width>101</width>
       <height>81</height>
      </rect>
@@ -122,7 +122,7 @@
     <property name="geometry">
      <rect>
       <x>220</x>
-      <y>270</y>
+      <y>250</y>
       <width>81</width>
       <height>81</height>
      </rect>
@@ -254,7 +254,7 @@
       <x>680</x>
       <y>160</y>
       <width>151</width>
-      <height>181</height>
+      <height>201</height>
      </rect>
     </property>
     <property name="title">
@@ -362,6 +362,19 @@
      </property>
      <property name="text">
       <string>Ammo Up</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="weaknessExploitCheckBox">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>180</y>
+       <width>151</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Weakness Exploit</string>
      </property>
     </widget>
    </widget>
@@ -758,10 +771,10 @@
    <widget class="QTabWidget" name="damageTabWidget">
     <property name="geometry">
      <rect>
-      <x>280</x>
-      <y>360</y>
+      <x>540</x>
+      <y>370</y>
       <width>241</width>
-      <height>161</height>
+      <height>151</height>
      </rect>
     </property>
     <property name="currentIndex">
@@ -787,7 +800,7 @@
      <widget class="QLabel" name="totalDamageFloatLabel">
       <property name="geometry">
        <rect>
-        <x>160</x>
+        <x>180</x>
         <y>0</y>
         <width>51</width>
         <height>20</height>
@@ -801,7 +814,7 @@
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>40</y>
+        <y>30</y>
         <width>89</width>
         <height>17</height>
        </rect>
@@ -813,8 +826,8 @@
      <widget class="QLabel" name="rawDamageFloatLabel">
       <property name="geometry">
        <rect>
-        <x>160</x>
-        <y>40</y>
+        <x>180</x>
+        <y>30</y>
         <width>51</width>
         <height>20</height>
        </rect>
@@ -827,20 +840,20 @@
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>80</y>
-        <width>81</width>
+        <y>60</y>
+        <width>121</width>
         <height>17</height>
        </rect>
       </property>
       <property name="text">
-       <string>Ele Damage</string>
+       <string>Element Damage</string>
       </property>
      </widget>
      <widget class="QLabel" name="eleDamageFloatLabel">
       <property name="geometry">
        <rect>
-        <x>160</x>
-        <y>80</y>
+        <x>180</x>
+        <y>60</y>
         <width>51</width>
         <height>20</height>
        </rect>
@@ -853,7 +866,7 @@
       <property name="geometry">
        <rect>
         <x>70</x>
-        <y>100</y>
+        <y>90</y>
         <width>85</width>
         <height>27</height>
        </rect>
@@ -990,7 +1003,7 @@
     <property name="geometry">
      <rect>
       <x>540</x>
-      <y>160</y>
+      <y>250</y>
       <width>131</width>
       <height>101</height>
      </rect>
@@ -1158,191 +1171,41 @@
    <widget class="QGroupBox" name="customWeaponGroupBox">
     <property name="geometry">
      <rect>
-      <x>530</x>
-      <y>400</y>
-      <width>291</width>
-      <height>121</height>
+      <x>280</x>
+      <y>350</y>
+      <width>251</width>
+      <height>171</height>
      </rect>
     </property>
     <property name="title">
-     <string>Input Custom Weapon</string>
+     <string>Custom Weapons</string>
     </property>
-    <widget class="QLabel" name="customAttackLabel">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>70</y>
-       <width>67</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Attack</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="customElementLabel">
-     <property name="geometry">
-      <rect>
-       <x>70</x>
-       <y>70</y>
-       <width>101</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Element</string>
-     </property>
-    </widget>
-    <widget class="QComboBox" name="customWeaponTypeComboBox">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>40</y>
-       <width>151</width>
-       <height>27</height>
-      </rect>
-     </property>
-     <item>
-      <property name="text">
-       <string>ChargeBlades</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>GreatSwords</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>InsectGlaives</string>
-      </property>
-     </item>
-    </widget>
-    <widget class="QLabel" name="customWeaponTypeLabel">
+    <widget class="QListWidget" name="customWeaponsListWidget">
      <property name="geometry">
       <rect>
        <x>0</x>
        <y>20</y>
-       <width>101</width>
-       <height>17</height>
+       <width>251</width>
+       <height>151</height>
       </rect>
      </property>
-     <property name="text">
-      <string>Weapon Type</string>
-     </property>
+     <item>
+      <property name="text">
+       <string>None</string>
+      </property>
+     </item>
     </widget>
     <widget class="QPushButton" name="addWeaponPushButton">
      <property name="geometry">
       <rect>
-       <x>210</x>
-       <y>90</y>
-       <width>71</width>
-       <height>27</height>
+       <x>130</x>
+       <y>0</y>
+       <width>99</width>
+       <height>21</height>
       </rect>
      </property>
      <property name="text">
-      <string>Add</string>
-     </property>
-    </widget>
-    <widget class="QSpinBox" name="spinBox">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>90</y>
-       <width>61</width>
-       <height>27</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QSpinBox" name="spinBox_3">
-     <property name="geometry">
-      <rect>
-       <x>70</x>
-       <y>90</y>
-       <width>61</width>
-       <height>27</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLabel" name="customAffinityLabel">
-     <property name="geometry">
-      <rect>
-       <x>140</x>
-       <y>70</y>
-       <width>67</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Affinity</string>
-     </property>
-    </widget>
-    <widget class="QDoubleSpinBox" name="doubleSpinBox">
-     <property name="geometry">
-      <rect>
-       <x>140</x>
-       <y>90</y>
-       <width>69</width>
-       <height>27</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QComboBox" name="comboBox">
-     <property name="geometry">
-      <rect>
-       <x>190</x>
-       <y>40</y>
-       <width>101</width>
-       <height>27</height>
-      </rect>
-     </property>
-     <item>
-      <property name="text">
-       <string>Purple</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>White</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Blue</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Green</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Yellow</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Orange</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Red</string>
-      </property>
-     </item>
-    </widget>
-    <widget class="QLabel" name="label_2">
-     <property name="geometry">
-      <rect>
-       <x>190</x>
-       <y>20</y>
-       <width>131</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Sharpness</string>
+      <string>Add Weapon</string>
      </property>
     </widget>
    </widget>
@@ -1350,9 +1213,9 @@
     <property name="geometry">
      <rect>
       <x>540</x>
-      <y>270</y>
+      <y>160</y>
       <width>131</width>
-      <height>101</height>
+      <height>81</height>
      </rect>
     </property>
     <property name="title">
@@ -1382,19 +1245,6 @@
      </property>
      <property name="text">
       <string>Ele</string>
-     </property>
-    </widget>
-    <widget class="QCheckBox" name="weaknessExploitCheckBox">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>80</y>
-       <width>101</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Weakness</string>
      </property>
     </widget>
     <widget class="QSpinBox" name="rawHitzoneSpinBox">

@@ -3,9 +3,12 @@
 
 #include <QMainWindow>
 #include <QString>
+#include <fstream>
 #include <vector>
+#include "weapon.hpp"
 #include "damagecalculator.hpp"
 #include "querytools.hpp"
+#include "addweapondialog.hpp"
 
 namespace Ui {
 class damagecalculatorwindow;
@@ -34,17 +37,35 @@ private slots:
 
     void on_motionValueListWidget_clicked(const QModelIndex &index);
 
+    void on_weapon_type_list_widget_activated(const QModelIndex &index);
+
+    void on_weapon_list_widget_activated(const QModelIndex &index);
+
+    void on_motionValueListWidget_activated(const QModelIndex &index);
+
+    void on_addWeaponPushButton_clicked();
+
+    void updateCustomWeaponsListWidget();
+
+    void updateChosenWeapon();
+
+    void on_customWeaponsListWidget_clicked(const QModelIndex &index);
+
 public:
     explicit damagecalculatorwindow(QWidget *parent = 0);
     ~damagecalculatorwindow();
 
 private:
     Ui::damagecalculatorwindow *ui;
-    QString weapon;
+    addweapondialog *addWeaponDialog;
+    QString weaponName;
     QString weaponType;
     QString motionValue;
     int *motionValues;
     int numAttacks;
+    bool customWeapon;
+    std::vector<weapon> customWeapons;
+    weapon chosenWeapon;
 };
 
 #endif // DAMAGECALCULATORWINDOW_HPP
