@@ -18,6 +18,7 @@ mh4u-tool_plugin_import.cpp
 # moc files
 moc_*
 
+<<<<<<< HEAD
 # executables
 MH4U-Tool
 
@@ -26,3 +27,13 @@ MH4U-Tool-Custom-Weapons.txt
 
 # pro files (after .pro)
 MH4U-Tool.pro.*
+=======
+# ui files
+ui_*
+
+# user files
+*.pro.*
+
+# executable
+MH4U-Tool
+>>>>>>> 2ef5de6c3eecf648aa9403917e948c6b4a46e82f
