@@ -19,3 +19,9 @@ void MainWindow::on_damage_calculator_button_clicked()
     damageCalculatorWindow->show();
 }
 
+
+void MainWindow::on_damage_calculator_button_2_clicked()
+{
+    defenseCalculatorWindow = new defensecalculatorwindow(this);
+    defenseCalculatorWindow->show();
+}

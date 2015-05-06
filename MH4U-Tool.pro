@@ -18,17 +18,20 @@ SOURCES += main.cpp\
     damagecalculatorwindow.cpp \
     querytools.cpp \
     addweapondialog.cpp \
-    weapon.cpp
+    weapon.cpp \
+    defensecalculatorwindow.cpp
 
 HEADERS  += mainwindow.hpp \
     damagecalculator.hpp \
     damagecalculatorwindow.hpp \
     querytools.hpp \
     addweapondialog.hpp \
-    weapon.hpp
+    weapon.hpp \
+    defensecalculatorwindow.hpp
 
 FORMS    += mainwindow.ui \
     damagecalculatorwindow.ui \
-    addweapondialog.ui
+    addweapondialog.ui \
+    defensecalculatorwindow.ui
 
 DISTFILES +=
