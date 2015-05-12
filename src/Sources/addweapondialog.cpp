@@ -1,4 +1,4 @@
-#include "addweapondialog.hpp"
+#include "src/Headers/addweapondialog.hpp"
 #include "ui_addweapondialog.h"
 
 addweapondialog::addweapondialog(QWidget *parent) :

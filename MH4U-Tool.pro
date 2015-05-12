@@ -12,26 +12,26 @@ TARGET = MH4U-Tool
 TEMPLATE = app
 
 
-SOURCES += main.cpp\
-        mainwindow.cpp \
-    damagecalculator.cpp \
-    damagecalculatorwindow.cpp \
-    querytools.cpp \
-    addweapondialog.cpp \
-    weapon.cpp \
-    defensecalculatorwindow.cpp
+SOURCES += src/Sources/main.cpp\
+    src/Sources/mainwindow.cpp \
+    src/Sources/damagecalculator.cpp \
+    src/Sources/damagecalculatorwindow.cpp \
+    src/Sources/querytools.cpp \
+    src/Sources/addweapondialog.cpp \
+    src/Sources/weapon.cpp \
+    src/Sources/defensecalculatorwindow.cpp \
 
-HEADERS  += mainwindow.hpp \
-    damagecalculator.hpp \
-    damagecalculatorwindow.hpp \
-    querytools.hpp \
-    addweapondialog.hpp \
-    weapon.hpp \
-    defensecalculatorwindow.hpp
+HEADERS  += src/Headers/mainwindow.hpp \
+    src/Headers/damagecalculator.hpp \
+    src/Headers/damagecalculatorwindow.hpp \
+    src/Headers/querytools.hpp \
+    src/Headers/addweapondialog.hpp \
+    src/Headers/weapon.hpp \
+    src/Headers/defensecalculatorwindow.hpp \
 
-FORMS    += mainwindow.ui \
-    damagecalculatorwindow.ui \
-    addweapondialog.ui \
-    defensecalculatorwindow.ui
+FORMS    += src/Forms/mainwindow.ui \
+    src/Forms/damagecalculatorwindow.ui \
+    src/Forms/addweapondialog.ui \
+    src/Forms/defensecalculatorwindow.ui \
 
 DISTFILES +=

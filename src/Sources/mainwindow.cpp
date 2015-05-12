@@ -1,4 +1,4 @@
-#include "mainwindow.hpp"
+#include "src/Headers/mainwindow.hpp"
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -11,6 +11,8 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete this->damageCalculatorWindow;
+    delete this->defenseCalculatorWindow;
 }
 
 void MainWindow::on_damage_calculator_button_clicked()

@@ -14,7 +14,7 @@
    <string>MH4U-Tool</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>80</x>
@@ -23,9 +23,21 @@
       <height>71</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Sans</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QPushButton" name="damage_calculator_button">
+       <property name="font">
+        <font>
+         <family>Sans</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
        <property name="text">
         <string>Damage 
 Calculator</string>
@@ -34,6 +46,12 @@ Calculator</string>
      </item>
      <item>
       <widget class="QPushButton" name="damage_calculator_button_2">
+       <property name="font">
+        <font>
+         <family>Sans</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
        <property name="text">
         <string>Defense 
 Calculator</string>
@@ -49,7 +67,7 @@ Calculator</string>
      <x>0</x>
      <y>0</y>
      <width>400</width>
-     <height>25</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

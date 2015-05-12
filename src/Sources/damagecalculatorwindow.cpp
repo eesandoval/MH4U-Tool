@@ -1,4 +1,4 @@
-#include "damagecalculatorwindow.hpp"
+#include "src/Headers/damagecalculatorwindow.hpp"
 #include "ui_damagecalculatorwindow.h"
 #include <iostream>
 
@@ -80,7 +80,6 @@ void damagecalculatorwindow::updateCustomWeaponsListWidget()
     inFile.open("MH4U-Tool-Custom-Weapons.txt");
     if (inFile.is_open())
     {
-        std::cout << "We Opened!" << std::endl;
         while(std::getline(inFile, line))
         {
             switch(count++)
@@ -290,9 +289,6 @@ void damagecalculatorwindow::updateChosenWeapon()
         this->chosenWeapon.sharpness = query.value(0).toString();
         query = findQuery("sharpness+1", this->weaponType, "name", this->weaponName);
         this->chosenWeapon.sharpness1 = query.value(0).toString();
-
-        std::cout << this->chosenWeapon.sharpness.toStdString() << std::endl;
-        std::cout << this->chosenWeapon.sharpness1.toStdString() << std::endl;
 
         // Other maybe one day query for each item
         this->chosenWeapon.rarity = 10;
