@@ -282,7 +282,7 @@ void damagecalculatorwindow::updateChosenWeapon()
 
         // Affinity
         query = findQuery("affinity", this->weaponType, "name", this->weaponName);
-        this->chosenWeapon.affinity = query.value(0).toString().toInt();
+        this->chosenWeapon.affinity = query.value(0).toString().toFloat();
 
         // Sharpness
         query = findQuery("sharpness", this->weaponType, "name", this->weaponName);

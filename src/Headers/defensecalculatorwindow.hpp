@@ -52,9 +52,8 @@ private slots:
 
 private:
     Ui::defensecalculatorwindow *ui;
-    int total_defense, helmet, torso, waist, gloves, boots;
-    int defense_skill;
-    int hunting_horn;
+    int total_defense, helmet, torso, waist, gloves, boots, defense_skill_add;
+    float defense_skill_mult, hunting_horn_mult;
 };
 
 #endif // DEFENSECALCULATORWINDOW_HPP
