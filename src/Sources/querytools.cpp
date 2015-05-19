@@ -1,4 +1,4 @@
-#include "querytools.hpp"
+#include "src/Headers/querytools.hpp"
 
 QSqlQuery runQuery(const QString& sql)
 {

@@ -31,6 +31,8 @@ defensecalculatorwindow::defensecalculatorwindow(QWidget *parent) :
     this->defense_skill_add = 0;
     this->defense_skill_mult = 1;
     this->hunting_horn_mult = 1;
+    this->kitchen_add = 0;
+    this->fortify_mult = 1;
 }
 
 defensecalculatorwindow::~defensecalculatorwindow()
@@ -52,8 +54,11 @@ void defensecalculatorwindow::update_total_defense()
     */
     this->total_defense = this->helmet + this->torso + this->gloves + this->waist + this->boots;
     this->total_defense += this->defense_skill_add;
+    this->total_defense += this->kitchen_add;
+
     this->total_defense *= this->defense_skill_mult;
     this->total_defense *= this->hunting_horn_mult;
+    this->total_defense *= this->fortify_mult;
 }
 
 void defensecalculatorwindow::change_displayed_defense()
@@ -245,4 +250,54 @@ void defensecalculatorwindow::on_hunting_horn_none_toggled(bool checked)
         ui->hunting_horn_replay->setEnabled(false);
     else
         ui->hunting_horn_replay->setEnabled(true);
+}
+
+/*
+ * These next functions store the bonus from the kitchen in kitchen_add
+ * If its toggled, add the bonus and if the button is untoggled detract the bonus
+ * Each function will update the total defense and display it
+*/
+void defensecalculatorwindow::on_defense_up_kitchen_small_toggled(bool checked)
+{
+    if (checked)
+        this->kitchen_add = 5;
+    else
+        this->kitchen_add = 0;
+    update_total_defense();
+    change_displayed_defense();
+}
+
+void defensecalculatorwindow::on_defense_up_kitchen_large_toggled(bool checked)
+{
+    if (checked)
+        this->kitchen_add = 7;
+    else
+        this->kitchen_add = 0;
+    update_total_defense();
+    change_displayed_defense();
+}
+
+/*
+ * These next functions store the bonus from the fortify skill in fortify_mult
+ * If its toggled, add the bonus and if the button is untoggled detract the bonus
+ * Each function will update the total defense and display it
+*/
+void defensecalculatorwindow::on_fortify_cart1_toggled(bool checked)
+{
+    if (checked)
+        this->fortify_mult = 1.1;
+    else
+        this->fortify_mult = 1;
+    update_total_defense();
+    change_displayed_defense();
+}
+
+void defensecalculatorwindow::on_fortify_cart2_toggled(bool checked)
+{
+    if (checked)
+        this->fortify_mult = 1.2;
+    else
+        this->fortify_mult = 1;
+    update_total_defense();
+    change_displayed_defense();
 }

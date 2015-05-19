@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 
-#define MAX_ARMOR_DEF 150
+#define MAX_ARMOR_DEF 200
 
 namespace Ui {
 class defensecalculatorwindow;
@@ -50,10 +50,18 @@ private slots:
 
     void on_hunting_horn_none_toggled(bool checked);
 
+    void on_defense_up_kitchen_small_toggled(bool checked);
+
+    void on_defense_up_kitchen_large_toggled(bool checked);
+
+    void on_fortify_cart1_toggled(bool checked);
+
+    void on_fortify_cart2_toggled(bool checked);
+
 private:
     Ui::defensecalculatorwindow *ui;
-    int total_defense, helmet, torso, waist, gloves, boots, defense_skill_add;
-    float defense_skill_mult, hunting_horn_mult;
+    int total_defense, helmet, torso, waist, gloves, boots, defense_skill_add, kitchen_add;
+    float defense_skill_mult, hunting_horn_mult, fortify_mult;
 };
 
 #endif // DEFENSECALCULATORWINDOW_HPP

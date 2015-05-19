@@ -1,5 +1,5 @@
 #include <QtSql/QSqlQuery>
-#include "damagecalculator.hpp"
+#include "src/Headers/damagecalculator.hpp"
 
 float calculate_raw_sharpness(std::string sharpness)
 {
