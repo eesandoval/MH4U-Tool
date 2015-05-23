@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>833</width>
+    <width>827</width>
     <height>568</height>
    </rect>
   </property>
@@ -48,7 +48,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Cartx1</string>
+      <string>&amp;Cartx1</string>
      </property>
     </widget>
     <widget class="QRadioButton" name="faint2RadioButton">
@@ -67,7 +67,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Cartx2</string>
+      <string>Cart&amp;x2</string>
      </property>
     </widget>
     <widget class="QRadioButton" name="fortifyNoneRadioButton">
@@ -86,7 +86,7 @@
       </font>
      </property>
      <property name="text">
-      <string>None</string>
+      <string>&amp;None</string>
      </property>
     </widget>
    </widget>
@@ -333,7 +333,7 @@
       </font>
      </property>
      <property name="text">
-      <string>AuXL</string>
+      <string>Au&amp;XL</string>
      </property>
     </widget>
     <widget class="QRadioButton" name="AuXNoneRadioButton">
@@ -656,7 +656,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Latent Power+1</string>
+      <string>&amp;Latent Power+1</string>
      </property>
     </widget>
     <widget class="QRadioButton" name="latentPower2RadioButton">
@@ -751,7 +751,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Peak Performance</string>
+      <string>Pea&amp;k Performance</string>
      </property>
     </widget>
    </widget>
@@ -789,7 +789,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Attack Up (S)</string>
+      <string>Attack &amp;Up (S)</string>
      </property>
     </widget>
     <widget class="QRadioButton" name="attackUpLRadioButton">
@@ -979,7 +979,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Critical God</string>
+      <string>Critical &amp;God</string>
      </property>
     </widget>
     <widget class="QRadioButton" name="CENoneRadioButton">
@@ -1074,7 +1074,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Element+3</string>
+      <string>Element+&amp;3</string>
      </property>
     </widget>
     <widget class="QCheckBox" name="elementAtkUpCheckBox">
@@ -1429,7 +1429,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Artillery Novice</string>
+      <string>Artillery No&amp;vice</string>
      </property>
     </widget>
     <widget class="QRadioButton" name="artilleryExpertRadioButton">
@@ -1543,7 +1543,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Boost Mode</string>
+      <string>Boost &amp;Mode</string>
      </property>
     </widget>
     <widget class="QRadioButton" name="weaponSpecificNoneRadioButton">
@@ -1940,8 +1940,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>833</width>
-     <height>26</height>
+     <width>827</width>
+     <height>25</height>
     </rect>
    </property>
   </widget>

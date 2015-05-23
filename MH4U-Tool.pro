@@ -20,6 +20,7 @@ SOURCES += src/Sources/main.cpp\
     src/Sources/addweapondialog.cpp \
     src/Sources/weapon.cpp \
     src/Sources/defensecalculatorwindow.cpp \
+    src/Sources/teostratimerwindow.cpp
 
 HEADERS  += src/Headers/mainwindow.hpp \
     src/Headers/damagecalculator.hpp \
@@ -28,10 +29,12 @@ HEADERS  += src/Headers/mainwindow.hpp \
     src/Headers/addweapondialog.hpp \
     src/Headers/weapon.hpp \
     src/Headers/defensecalculatorwindow.hpp \
+    src/Headers/teostratimerwindow.hpp
 
 FORMS    += src/Forms/mainwindow.ui \
     src/Forms/damagecalculatorwindow.ui \
     src/Forms/addweapondialog.ui \
     src/Forms/defensecalculatorwindow.ui \
+    src/Forms/teostratimerwindow.ui
 
 DISTFILES +=

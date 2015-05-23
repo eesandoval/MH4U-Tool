@@ -29,3 +29,6 @@ ui_*
 
 # user files
 *.pro.*
+
+# object files
+object_script.*

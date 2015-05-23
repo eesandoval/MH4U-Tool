@@ -6,68 +6,66 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>246</width>
+    <height>161</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MH4U-Tool</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>80</x>
-      <y>80</y>
-      <width>241</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Sans</family>
-      <pointsize>10</pointsize>
-     </font>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QPushButton" name="damage_calculator_button">
-       <property name="font">
-        <font>
-         <family>Sans</family>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Damage 
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QPushButton" name="damage_calculator_button_2">
+      <property name="font">
+       <font>
+        <family>Sans</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Defense 
 Calculator</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="damage_calculator_button_2">
-       <property name="font">
-        <font>
-         <family>Sans</family>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Defense 
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QPushButton" name="teostra_timer_button">
+      <property name="font">
+       <font>
+        <family>Sans</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Teostra
+Timer</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QPushButton" name="damage_calculator_button">
+      <property name="font">
+       <font>
+        <family>Sans</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Damage 
 Calculator</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>400</width>
-     <height>26</height>
+     <width>246</width>
+     <height>25</height>
     </rect>
    </property>
   </widget>
