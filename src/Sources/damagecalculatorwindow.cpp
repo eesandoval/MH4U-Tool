@@ -56,6 +56,9 @@ damagecalculatorwindow::damagecalculatorwindow(QWidget *parent) :
     ui->damageTabWidget->setTabText(0, "Basic Overview");
     ui->damageTabWidget->setTabText(1, "View Details");
 
+    // Disable the "remove" option for custom weapons
+    ui->removeWeaponPushButton->setDisabled(true);
+
     // Update the custom weapons
     damagecalculatorwindow::updateCustomWeaponsListWidget();
 
@@ -143,7 +146,9 @@ void damagecalculatorwindow::on_weapon_type_list_widget_clicked(const QModelInde
     ui->motionValueListWidget->clear();
 
     // Update the contents of the weapon_list_widget
-    this->weaponType = index.data(Qt::DisplayRole).toString();
+//    this->weaponType = index.data(Qt::DisplayRole).toString().replace(" ", "");
+
+    std::cout << this->weaponType.toStdString() << std::endl;
     sql.append(this->weaponType);
     query = runQuery(sql);
     while(query.next())
@@ -632,6 +637,12 @@ void damagecalculatorwindow::on_customWeaponsListWidget_clicked(const QModelInde
     QString sql;
     QSqlQuery query;
 
+    // Disable remove option if None is selected
+    if (ui->customWeaponsListWidget->currentRow() == ui->customWeaponsListWidget->count() - 1)
+        ui->removeWeaponPushButton->setDisabled(true);
+    else
+        ui->removeWeaponPushButton->setDisabled(false);
+
     if (index.data().toString() != "None")
     {
         this->weaponType = this->customWeapons[index.row()].weapon_type;
@@ -645,4 +656,10 @@ void damagecalculatorwindow::on_customWeaponsListWidget_clicked(const QModelInde
         ui->motionValueListWidget->setCurrentRow(0);
         damagecalculatorwindow::on_motionValueListWidget_clicked(ui->motionValueListWidget->currentIndex());
     }
+}
+
+void damagecalculatorwindow::on_removeWeaponPushButton_clicked()
+{
+    // Deletes the selected custom weapon
+    remove("MH4U-Tool-Custom-Weapons.txt");
 }

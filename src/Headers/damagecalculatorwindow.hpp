@@ -51,6 +51,8 @@ private slots:
 
     void on_customWeaponsListWidget_clicked(const QModelIndex &index);
 
+    void on_removeWeaponPushButton_clicked();
+
 public:
     explicit damagecalculatorwindow(QWidget *parent = 0);
     ~damagecalculatorwindow();
