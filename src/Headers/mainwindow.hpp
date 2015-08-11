@@ -21,9 +21,9 @@ public:
 private slots:
     void on_damage_calculator_button_clicked();
 
-    void on_damage_calculator_button_2_clicked();
-
     void on_teostra_timer_button_clicked();
+
+    void on_defense_calculator_button_clicked();
 
 private:
     Ui::MainWindow *ui;

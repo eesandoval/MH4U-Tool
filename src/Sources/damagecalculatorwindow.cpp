@@ -11,6 +11,13 @@ damagecalculatorwindow::damagecalculatorwindow(QWidget *parent) :
     motionValues = new int[20];
     customWeapon = false;
 
+    // Set up the weapon type list widget
+    unsigned int num_weapon_types = 14;
+    QString weapon_types[] = {"Bows", "Dual Blades", "Charge Blades", "Great Swords", "Gun Lances", "Hammers", "Heavy Bowguns",
+                              "Hunting Horns", "Insect Glaives", "Lances", "Long Swords", "Light Bowguns", "Switch Axes", "Sword n Shields"};
+    for (unsigned int i = 0; i < num_weapon_types; ++i)
+        ui->weapon_type_list_widget->addItem(weapon_types[i]);
+
     // Set up the "None" radio buttons
     ui->AuXNoneRadioButton->setChecked(true);
     ui->CENoneRadioButton->setChecked(true);
@@ -55,9 +62,6 @@ damagecalculatorwindow::damagecalculatorwindow(QWidget *parent) :
     // Set the tab names on damageTabWidget
     ui->damageTabWidget->setTabText(0, "Basic Overview");
     ui->damageTabWidget->setTabText(1, "View Details");
-
-    // Disable the "remove" option for custom weapons
-    ui->removeWeaponPushButton->setDisabled(true);
 
     // Update the custom weapons
     damagecalculatorwindow::updateCustomWeaponsListWidget();
@@ -146,9 +150,7 @@ void damagecalculatorwindow::on_weapon_type_list_widget_clicked(const QModelInde
     ui->motionValueListWidget->clear();
 
     // Update the contents of the weapon_list_widget
-//    this->weaponType = index.data(Qt::DisplayRole).toString().replace(" ", "");
-
-    std::cout << this->weaponType.toStdString() << std::endl;
+    this->weaponType = index.data(Qt::DisplayRole).toString().replace(" ", "");
     sql.append(this->weaponType);
     query = runQuery(sql);
     while(query.next())
@@ -184,7 +186,7 @@ void damagecalculatorwindow::on_weapon_list_widget_clicked(const QModelIndex &in
     this->weaponName = index.data(Qt::DisplayRole).toString();
 
     // Reset this' appropriate weapon type
-    this->weaponType = ui->weapon_type_list_widget->currentItem()->data(Qt::DisplayRole).toString();
+    this->weaponType = ui->weapon_type_list_widget->currentItem()->data(Qt::DisplayRole).toString().replace(" ", "");
 
     // When a weapon is selected here, set the customs to none
     ui->customWeaponsListWidget->setCurrentRow(this->customWeapons.size());
@@ -289,11 +291,14 @@ void damagecalculatorwindow::updateChosenWeapon()
         query = findQuery("affinity", this->weaponType, "name", this->weaponName);
         this->chosenWeapon.affinity = query.value(0).toString().toFloat();
 
-        // Sharpness
-        query = findQuery("sharpness", this->weaponType, "name", this->weaponName);
-        this->chosenWeapon.sharpness = query.value(0).toString();
-        query = findQuery("sharpness+1", this->weaponType, "name", this->weaponName);
-        this->chosenWeapon.sharpness1 = query.value(0).toString();
+        // Sharpness if blademaster weapon
+        if (this->weaponType != "Bows" && this->weaponType != "LightBowguns" && this->weaponType != "HeavyBowguns")
+        {
+            query = findQuery("sharpness", this->weaponType, "name", this->weaponName);
+            this->chosenWeapon.sharpness = query.value(0).toString();
+            query = findQuery("sharpness+1", this->weaponType, "name", this->weaponName);
+            this->chosenWeapon.sharpness1 = query.value(0).toString();
+        }
 
         // Other maybe one day query for each item
         this->chosenWeapon.rarity = 10;
@@ -321,12 +326,19 @@ void damagecalculatorwindow::on_caclulatePushButton_clicked()
     // Update the chosen weapon
     damagecalculatorwindow::updateChosenWeapon();
 
-    // Need to get sharpness
-    if (ui->sharpnessCheckBox->isChecked())
-        sharpness = this->chosenWeapon.sharpness1;
+    // Need to check if blademaster or gunner weapon
+    if (this->weaponType == "Bows" || this->weaponType == "LightBowguns" || this->weaponType == "HeavyBowguns")
+    {
+        // Gunner weapon, so get the shot type
+    }
     else
-        sharpness = this->chosenWeapon.sharpness;
-
+    {
+        // Blademaster weapon, so get the sharpness
+        if (ui->sharpnessCheckBox->isChecked())
+            sharpness = this->chosenWeapon.sharpness1;
+        else
+            sharpness = this->chosenWeapon.sharpness;
+    }
     // Need to get all raw modifiers
     rawModifiers["attack"] = float(this->chosenWeapon.attack);
 
@@ -636,12 +648,6 @@ void damagecalculatorwindow::on_customWeaponsListWidget_clicked(const QModelInde
 {
     QString sql;
     QSqlQuery query;
-
-    // Disable remove option if None is selected
-    if (ui->customWeaponsListWidget->currentRow() == ui->customWeaponsListWidget->count() - 1)
-        ui->removeWeaponPushButton->setDisabled(true);
-    else
-        ui->removeWeaponPushButton->setDisabled(false);
 
     if (index.data().toString() != "None")
     {

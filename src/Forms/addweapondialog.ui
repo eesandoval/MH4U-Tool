@@ -6,475 +6,318 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>280</width>
+    <height>275</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>280</width>
+    <height>275</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>280</width>
+    <height>275</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Add Custom Weapon</string>
   </property>
-  <widget class="QDialogButtonBox" name="buttonBox">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>240</y>
-     <width>341</width>
-     <height>32</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Sans</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Horizontal</enum>
-   </property>
-   <property name="standardButtons">
-    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
-   </property>
-  </widget>
-  <widget class="QComboBox" name="weaponTypeComboBox">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>40</y>
-     <width>141</width>
-     <height>27</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Sans</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <item>
-    <property name="text">
-     <string>Bows</string>
-    </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="2" column="0" alignment="Qt::AlignBottom">
+    <widget class="QLabel" name="label_2">
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>25</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Attack</string>
+     </property>
+    </widget>
    </item>
-   <item>
-    <property name="text">
-     <string>ChargeBlades</string>
-    </property>
+   <item row="0" column="0" alignment="Qt::AlignBottom">
+    <widget class="QLabel" name="label">
+     <property name="maximumSize">
+      <size>
+       <width>68</width>
+       <height>25</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Weapon Type</string>
+     </property>
+    </widget>
    </item>
-   <item>
-    <property name="text">
-     <string>DualBlades</string>
-    </property>
+   <item row="0" column="2" alignment="Qt::AlignBottom">
+    <widget class="QLabel" name="label_8">
+     <property name="maximumSize">
+      <size>
+       <width>134</width>
+       <height>25</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Name</string>
+     </property>
+    </widget>
    </item>
-   <item>
-    <property name="text">
-     <string>GreatSwords</string>
-    </property>
+   <item row="1" column="2">
+    <widget class="QLineEdit" name="nameLineEdit">
+     <property name="maximumSize">
+      <size>
+       <width>134</width>
+       <height>20</height>
+      </size>
+     </property>
+    </widget>
    </item>
-   <item>
-    <property name="text">
-     <string>Gunlances</string>
-    </property>
+   <item row="1" column="0" colspan="2">
+    <widget class="QComboBox" name="weaponTypeComboBox">
+     <property name="maximumSize">
+      <size>
+       <width>142</width>
+       <height>22</height>
+      </size>
+     </property>
+     <item>
+      <property name="text">
+       <string>Bows</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>ChargeBlades</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>DualBlades</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>GreatSwords</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Gunlances</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Hammers</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>HeavyBowguns</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>InsectGlaives</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Lances</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>LightBowguns</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>LongSwords</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>SwordnShields</string>
+      </property>
+     </item>
+    </widget>
    </item>
-   <item>
-    <property name="text">
-     <string>Hammers</string>
-    </property>
+   <item row="2" column="1" alignment="Qt::AlignBottom">
+    <widget class="QLabel" name="label_3">
+     <property name="text">
+      <string>Affinity</string>
+     </property>
+    </widget>
    </item>
-   <item>
-    <property name="text">
-     <string>HeavyBowguns</string>
-    </property>
+   <item row="2" column="2" alignment="Qt::AlignBottom">
+    <widget class="QLabel" name="label_4">
+     <property name="text">
+      <string>Element Type</string>
+     </property>
+    </widget>
    </item>
-   <item>
-    <property name="text">
-     <string>InsectGlaives</string>
-    </property>
+   <item row="3" column="0">
+    <widget class="QSpinBox" name="attackSpinBox"/>
    </item>
-   <item>
-    <property name="text">
-     <string>Lances</string>
-    </property>
+   <item row="3" column="1">
+    <widget class="QDoubleSpinBox" name="affinityDoubleSpinBox"/>
    </item>
-   <item>
-    <property name="text">
-     <string>LightBowguns</string>
-    </property>
+   <item row="5" column="0">
+    <widget class="QComboBox" name="sharpnessButtonBox">
+     <item>
+      <property name="text">
+       <string>Purple</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>White</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Blue</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Green</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Yellow</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Orange</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Red</string>
+      </property>
+     </item>
+    </widget>
    </item>
-   <item>
-    <property name="text">
-     <string>LongSwords</string>
-    </property>
+   <item row="6" column="0" colspan="3">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
    </item>
-   <item>
-    <property name="text">
-     <string>SwordnShields</string>
-    </property>
+   <item row="3" column="2">
+    <widget class="QComboBox" name="elementTypeComboBox">
+     <item>
+      <property name="text">
+       <string>Fire</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Water</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Ice</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Dragon</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Thunder</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>None/Status</string>
+      </property>
+     </item>
+    </widget>
    </item>
-  </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>20</y>
-     <width>91</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Sans</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Weapon Type</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>80</y>
-     <width>67</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Sans</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Attack</string>
-   </property>
-  </widget>
-  <widget class="QSpinBox" name="attackSpinBox">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>100</y>
-     <width>81</width>
-     <height>27</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Sans</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-  </widget>
-  <widget class="QDoubleSpinBox" name="affinityDoubleSpinBox">
-   <property name="geometry">
-    <rect>
-     <x>140</x>
-     <y>100</y>
-     <width>69</width>
-     <height>27</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Sans</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_3">
-   <property name="geometry">
-    <rect>
-     <x>140</x>
-     <y>80</y>
-     <width>67</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Sans</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Affinity</string>
-   </property>
-  </widget>
-  <widget class="QComboBox" name="elementTypeComboBox">
-   <property name="geometry">
-    <rect>
-     <x>260</x>
-     <y>100</y>
-     <width>121</width>
-     <height>27</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Sans</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <item>
-    <property name="text">
-     <string>Fire</string>
-    </property>
+   <item row="4" column="2" alignment="Qt::AlignBottom">
+    <widget class="QLabel" name="label_5">
+     <property name="text">
+      <string>Element Value</string>
+     </property>
+    </widget>
    </item>
-   <item>
-    <property name="text">
-     <string>Water</string>
-    </property>
+   <item row="4" column="1" alignment="Qt::AlignBottom">
+    <widget class="QLabel" name="label_7">
+     <property name="text">
+      <string>Sharpness+1</string>
+     </property>
+    </widget>
    </item>
-   <item>
-    <property name="text">
-     <string>Ice</string>
-    </property>
+   <item row="5" column="1">
+    <widget class="QComboBox" name="sharpness1ComboBox">
+     <item>
+      <property name="text">
+       <string>Purple</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>White</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Blue</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Green</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Yellow</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Orange</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Red</string>
+      </property>
+     </item>
+    </widget>
    </item>
-   <item>
-    <property name="text">
-     <string>Dragon</string>
-    </property>
+   <item row="5" column="2">
+    <widget class="QSpinBox" name="elementSpinBox"/>
    </item>
-   <item>
-    <property name="text">
-     <string>Thunder</string>
-    </property>
+   <item row="4" column="0" alignment="Qt::AlignBottom">
+    <widget class="QLabel" name="label_6">
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>25</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Sharpness</string>
+     </property>
+    </widget>
    </item>
-   <item>
-    <property name="text">
-     <string>None/Status</string>
-    </property>
-   </item>
-  </widget>
-  <widget class="QLabel" name="label_4">
-   <property name="geometry">
-    <rect>
-     <x>260</x>
-     <y>80</y>
-     <width>101</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Sans</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Element Type</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_5">
-   <property name="geometry">
-    <rect>
-     <x>260</x>
-     <y>140</y>
-     <width>101</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Sans</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Element Value</string>
-   </property>
-  </widget>
-  <widget class="QSpinBox" name="elementSpinBox">
-   <property name="geometry">
-    <rect>
-     <x>260</x>
-     <y>160</y>
-     <width>81</width>
-     <height>27</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Sans</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_6">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>140</y>
-     <width>71</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Sans</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Sharpness</string>
-   </property>
-  </widget>
-  <widget class="QComboBox" name="sharpness1ComboBox">
-   <property name="geometry">
-    <rect>
-     <x>140</x>
-     <y>160</y>
-     <width>101</width>
-     <height>27</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Sans</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <item>
-    <property name="text">
-     <string>Purple</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>White</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Blue</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Green</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Yellow</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Orange</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Red</string>
-    </property>
-   </item>
-  </widget>
-  <widget class="QComboBox" name="sharpnessButtonBox">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>160</y>
-     <width>101</width>
-     <height>27</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Sans</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <item>
-    <property name="text">
-     <string>Purple</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>White</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Blue</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Green</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Yellow</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Orange</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Red</string>
-    </property>
-   </item>
-  </widget>
-  <widget class="QLabel" name="label_7">
-   <property name="geometry">
-    <rect>
-     <x>140</x>
-     <y>140</y>
-     <width>91</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Sans</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Sharpness+1</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="nameLineEdit">
-   <property name="geometry">
-    <rect>
-     <x>260</x>
-     <y>40</y>
-     <width>121</width>
-     <height>27</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Sans</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_8">
-   <property name="geometry">
-    <rect>
-     <x>260</x>
-     <y>20</y>
-     <width>67</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Sans</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Name</string>
-   </property>
-  </widget>
+  </layout>
  </widget>
  <resources/>
  <connections>

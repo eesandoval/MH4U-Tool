@@ -6,19 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1100</width>
+    <width>1025</width>
     <height>650</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>1100</width>
+    <width>1025</width>
     <height>650</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>1100</width>
+    <width>1025</width>
     <height>650</height>
    </size>
   </property>
@@ -26,1180 +26,1048 @@
    <string>Damage Calculator</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QGroupBox" name="gloveBox">
-    <property name="geometry">
-     <rect>
-      <x>230</x>
-      <y>10</y>
-      <width>151</width>
-      <height>181</height>
-     </rect>
-    </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>16777215</width>
-      <height>16777215</height>
-     </size>
-    </property>
-    <property name="title">
-     <string>Glove</string>
-    </property>
-    <layout class="QGridLayout" name="gridLayout_2">
-     <item row="0" column="0">
-      <widget class="QRadioButton" name="latentPower1RadioButton">
-       <property name="text">
-        <string>&amp;Latent Power+1</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QRadioButton" name="latentPower2RadioButton">
-       <property name="text">
-        <string>Latent Power+2</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QRadioButton" name="challenger1RadioButton">
-       <property name="text">
-        <string>Challenger+1</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QRadioButton" name="challenger2RadioButton">
-       <property name="text">
-        <string>Challenger+2</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0">
-      <widget class="QRadioButton" name="peakPerformanceRadioButton">
-       <property name="text">
-        <string>Pea&amp;k Performance</string>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="0">
-      <widget class="QRadioButton" name="gloveNoneRadioButton">
-       <property name="text">
-        <string>None</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QGroupBox" name="weaponTypeGroupBox">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>9</y>
-      <width>200</width>
-      <height>180</height>
-     </rect>
-    </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>200</width>
-      <height>180</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>200</width>
-      <height>180</height>
-     </size>
-    </property>
-    <property name="title">
-     <string>Weapon Type</string>
-    </property>
-    <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="0">
-      <widget class="QListWidget" name="weapon_type_list_widget">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <item>
-        <property name="text">
-         <string>DualBlades</string>
-        </property>
+   <layout class="QGridLayout" name="gridLayout_21">
+    <item row="0" column="0">
+     <widget class="QGroupBox" name="weaponTypeGroupBox">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>200</width>
+        <height>180</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="title">
+       <string>Weapon Type</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
+        <widget class="QListWidget" name="weapon_type_list_widget">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+        </widget>
        </item>
-       <item>
-        <property name="text">
-         <string>ChargeBlades</string>
-        </property>
+      </layout>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QGroupBox" name="gloveBox">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="title">
+       <string>Glove</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
+        <widget class="QRadioButton" name="latentPower1RadioButton">
+         <property name="text">
+          <string>&amp;Latent Power+1</string>
+         </property>
+        </widget>
        </item>
-       <item>
-        <property name="text">
-         <string>GreatSwords</string>
-        </property>
+       <item row="1" column="0">
+        <widget class="QRadioButton" name="latentPower2RadioButton">
+         <property name="text">
+          <string>Latent Power+2</string>
+         </property>
+        </widget>
        </item>
-       <item>
-        <property name="text">
-         <string>InsectGlaives</string>
-        </property>
+       <item row="2" column="0">
+        <widget class="QRadioButton" name="challenger1RadioButton">
+         <property name="text">
+          <string>Challenger+1</string>
+         </property>
+        </widget>
        </item>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QGroupBox" name="AuXBox">
-    <property name="geometry">
-     <rect>
-      <x>400</x>
-      <y>10</y>
-      <width>101</width>
-      <height>181</height>
-     </rect>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>16777215</width>
-      <height>16777215</height>
-     </size>
-    </property>
-    <property name="title">
-     <string>AuX</string>
-    </property>
-    <layout class="QGridLayout" name="gridLayout_3">
-     <item row="0" column="0">
-      <widget class="QRadioButton" name="AuSRadioButton">
-       <property name="text">
-        <string>AuS</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QRadioButton" name="AuMRadioButton">
-       <property name="text">
-        <string>AuM</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QRadioButton" name="AuLRadioButton">
-       <property name="text">
-        <string>AuL</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QRadioButton" name="AuXLRadioButton">
-       <property name="text">
-        <string>Au&amp;XL</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0">
-      <widget class="QRadioButton" name="AuXNoneRadioButton">
-       <property name="text">
-        <string>None</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QGroupBox" name="criticalEyeBox">
-    <property name="geometry">
-     <rect>
-      <x>520</x>
-      <y>10</y>
-      <width>200</width>
-      <height>181</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>0</width>
-      <height>0</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>16777215</width>
-      <height>16777215</height>
-     </size>
-    </property>
-    <property name="title">
-     <string>Critical Eye</string>
-    </property>
-    <layout class="QGridLayout" name="gridLayout_4">
-     <item row="0" column="0">
-      <widget class="QRadioButton" name="criticalEye1RadioButton">
-       <property name="text">
-        <string>Critical Eye+1</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QRadioButton" name="criticalEye2RadioButton">
-       <property name="text">
-        <string>Critical Eye+2</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QRadioButton" name="criticalEye3RadioButton">
-       <property name="text">
-        <string>Critical Eye+3</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QRadioButton" name="criticalGodRadioButton">
-       <property name="text">
-        <string>Critical &amp;God</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0">
-      <widget class="QRadioButton" name="CENoneRadioButton">
-       <property name="text">
-        <string>None</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QGroupBox" name="elementBox">
-    <property name="geometry">
-     <rect>
-      <x>740</x>
-      <y>10</y>
-      <width>140</width>
-      <height>181</height>
-     </rect>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>16777215</width>
-      <height>16777215</height>
-     </size>
-    </property>
-    <property name="title">
-     <string>Element</string>
-    </property>
-    <layout class="QGridLayout" name="gridLayout_5">
-     <item row="0" column="0">
-      <widget class="QRadioButton" name="element1RadioButton">
-       <property name="text">
-        <string>Element+1</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QRadioButton" name="element2RadioButton">
-       <property name="text">
-        <string>Element+2</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QRadioButton" name="element3RadioButton">
-       <property name="text">
-        <string>Element+&amp;3</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QCheckBox" name="elementAtkUpCheckBox">
-       <property name="text">
-        <string>ElementAtkUp</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0">
-      <widget class="QRadioButton" name="elementNoneRadioButton">
-       <property name="text">
-        <string>None</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QGroupBox" name="huntingHornBox">
-    <property name="geometry">
-     <rect>
-      <x>900</x>
-      <y>10</y>
-      <width>181</width>
-      <height>181</height>
-     </rect>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>16777215</width>
-      <height>16777215</height>
-     </size>
-    </property>
-    <property name="title">
-     <string>Hunting Horn</string>
-    </property>
-    <layout class="QGridLayout" name="gridLayout_6">
-     <item row="0" column="0">
-      <widget class="QRadioButton" name="attackUpSRadioButton">
-       <property name="text">
-        <string>Attack &amp;Up (S)</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QRadioButton" name="attackUpLRadioButton">
-       <property name="text">
-        <string>Attack Up (L)</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QCheckBox" name="affinityUpCheckBox">
-       <property name="text">
-        <string>Affinity Up</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QCheckBox" name="elementUpCheckBox">
-       <property name="text">
-        <string>Element Up</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0">
-      <widget class="QCheckBox" name="replayCheckBox">
-       <property name="text">
-        <string>Replay</string>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="0">
-      <widget class="QRadioButton" name="HHNoneRadioButton">
-       <property name="text">
-        <string>None</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QGroupBox" name="motionValueGroupBox">
-    <property name="geometry">
-     <rect>
-      <x>9</x>
-      <y>430</y>
-      <width>200</width>
-      <height>180</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>200</width>
-      <height>180</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>16777215</width>
-      <height>16777215</height>
-     </size>
-    </property>
-    <property name="title">
-     <string>Motion Value</string>
-    </property>
-    <layout class="QGridLayout" name="gridLayout_18">
-     <item row="0" column="0" alignment="Qt::AlignHCenter">
-      <widget class="QLabel" name="motionValueStringLabel">
-       <property name="text">
-        <string>[0]</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QListWidget" name="motionValueListWidget"/>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QGroupBox" name="otherBox">
-    <property name="geometry">
-     <rect>
-      <x>900</x>
-      <y>200</y>
-      <width>181</width>
-      <height>221</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>140</width>
-      <height>0</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>16777215</width>
-      <height>16777215</height>
-     </size>
-    </property>
-    <property name="title">
-     <string>Other</string>
-    </property>
-    <layout class="QGridLayout" name="gridLayout_15">
-     <item row="1" column="0">
-      <widget class="QCheckBox" name="checkBox">
-       <property name="text">
-        <string>Ammo Up</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QCheckBox" name="criticalDrawCheckBox">
-       <property name="text">
-        <string>Critical Draw</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0">
-      <widget class="QCheckBox" name="powerCharmCheckBox">
-       <property name="text">
-        <string>Power Charm</string>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="0">
-      <widget class="QCheckBox" name="powerTalonCheckBox">
-       <property name="text">
-        <string>Power Talon</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0">
-      <widget class="QCheckBox" name="sharpnessCheckBox">
-       <property name="text">
-        <string>Sharpness+1</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QCheckBox" name="criticalElementCheckBox">
-       <property name="text">
-        <string>Critical Element</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QGroupBox" name="weaponSpecificGroupBox">
-    <property name="geometry">
-     <rect>
-      <x>230</x>
-      <y>200</y>
-      <width>151</width>
-      <height>221</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>0</width>
-      <height>0</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>16777215</width>
-      <height>16777215</height>
-     </size>
-    </property>
-    <property name="title">
-     <string>Weapon Specifc</string>
-    </property>
-    <layout class="QGridLayout" name="gridLayout_12">
-     <item row="0" column="0">
-      <widget class="QRadioButton" name="CoBRadioButton">
-       <property name="text">
-        <string>CoB</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QRadioButton" name="tripleUpRadioButton">
-       <property name="text">
-        <string>Triple Up</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QRadioButton" name="boostModeRadioButton">
-       <property name="text">
-        <string>Boost &amp;Mode</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QRadioButton" name="critDistanceRadioButton">
-       <property name="text">
-        <string>Crit Distance</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0">
-      <widget class="QRadioButton" name="demonModeRadioButton">
-       <property name="text">
-        <string>Demon Mode</string>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="0">
-      <widget class="QCheckBox" name="rawHoneCheckBox">
-       <property name="text">
-        <string>Raw Hone</string>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="0">
-      <widget class="QRadioButton" name="weaponSpecificNoneRadioButton">
-       <property name="text">
-        <string>None</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QGroupBox" name="customWeaponGroupBox">
-    <property name="geometry">
-     <rect>
-      <x>900</x>
-      <y>430</y>
-      <width>181</width>
-      <height>181</height>
-     </rect>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>16777215</width>
-      <height>16777215</height>
-     </size>
-    </property>
-    <property name="title">
-     <string>Custom Weapons</string>
-    </property>
-    <layout class="QGridLayout" name="gridLayout_17">
-     <item row="1" column="0">
-      <widget class="QListWidget" name="customWeaponsListWidget">
-       <item>
-        <property name="text">
-         <string>None</string>
-        </property>
+       <item row="3" column="0">
+        <widget class="QRadioButton" name="challenger2RadioButton">
+         <property name="text">
+          <string>Challenger+2</string>
+         </property>
+        </widget>
        </item>
+       <item row="4" column="0">
+        <widget class="QRadioButton" name="peakPerformanceRadioButton">
+         <property name="text">
+          <string>Pea&amp;k Performance</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QRadioButton" name="gloveNoneRadioButton">
+         <property name="text">
+          <string>None</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <widget class="QGroupBox" name="AuXBox">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="title">
+       <string>AuX</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_3">
+       <item row="0" column="0">
+        <widget class="QRadioButton" name="AuSRadioButton">
+         <property name="text">
+          <string>AuS</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QRadioButton" name="AuMRadioButton">
+         <property name="text">
+          <string>AuM</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QRadioButton" name="AuLRadioButton">
+         <property name="text">
+          <string>AuL</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QRadioButton" name="AuXLRadioButton">
+         <property name="text">
+          <string>Au&amp;XL</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QRadioButton" name="AuXNoneRadioButton">
+         <property name="text">
+          <string>None</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="0" column="3" colspan="2">
+     <widget class="QGroupBox" name="criticalEyeBox">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="title">
+       <string>Critical Eye</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_4">
+       <item row="0" column="0">
+        <widget class="QRadioButton" name="criticalEye1RadioButton">
+         <property name="text">
+          <string>Critical Eye+1</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QRadioButton" name="criticalEye2RadioButton">
+         <property name="text">
+          <string>Critical Eye+2</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QRadioButton" name="criticalEye3RadioButton">
+         <property name="text">
+          <string>Critical Eye+3</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QRadioButton" name="criticalGodRadioButton">
+         <property name="text">
+          <string>Critical &amp;God</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QRadioButton" name="CENoneRadioButton">
+         <property name="text">
+          <string>None</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="0" column="5">
+     <widget class="QGroupBox" name="elementBox">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="title">
+       <string>Element</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_5">
+       <item row="0" column="0">
+        <widget class="QRadioButton" name="element1RadioButton">
+         <property name="text">
+          <string>Element+1</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QRadioButton" name="element2RadioButton">
+         <property name="text">
+          <string>Element+2</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QRadioButton" name="element3RadioButton">
+         <property name="text">
+          <string>Element+&amp;3</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QCheckBox" name="elementAtkUpCheckBox">
+         <property name="text">
+          <string>ElementAtkUp</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QRadioButton" name="elementNoneRadioButton">
+         <property name="text">
+          <string>None</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="0" column="6">
+     <widget class="QGroupBox" name="huntingHornBox">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="title">
+       <string>Hunting Horn</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_6">
+       <item row="0" column="0">
+        <widget class="QRadioButton" name="attackUpSRadioButton">
+         <property name="text">
+          <string>Attack &amp;Up Small</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QRadioButton" name="attackUpLRadioButton">
+         <property name="text">
+          <string>Attack Up Large</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QCheckBox" name="affinityUpCheckBox">
+         <property name="text">
+          <string>Affinity Up</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QCheckBox" name="elementUpCheckBox">
+         <property name="text">
+          <string>Element Up</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QCheckBox" name="replayCheckBox">
+         <property name="text">
+          <string>Hunting Horn Replay (Encore)</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QRadioButton" name="HHNoneRadioButton">
+         <property name="text">
+          <string>None</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="1" column="0" rowspan="2">
+     <widget class="QGroupBox" name="weaponGroupBox">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="title">
+       <string>Weapon</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_7">
+       <item row="0" column="0">
+        <widget class="QListWidget" name="weapon_list_widget"/>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="1" column="1" rowspan="2">
+     <widget class="QGroupBox" name="weaponSpecificGroupBox">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="title">
+       <string>Weapon Specifc</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_12">
+       <item row="0" column="0">
+        <widget class="QRadioButton" name="CoBRadioButton">
+         <property name="text">
+          <string>CoB</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QRadioButton" name="tripleUpRadioButton">
+         <property name="text">
+          <string>Triple Up</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QRadioButton" name="boostModeRadioButton">
+         <property name="text">
+          <string>Boost &amp;Mode</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QRadioButton" name="critDistanceRadioButton">
+         <property name="text">
+          <string>Crit Distance</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QRadioButton" name="demonModeRadioButton">
+         <property name="text">
+          <string>Demon Mode</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QCheckBox" name="rawHoneCheckBox">
+         <property name="text">
+          <string>Raw Hone</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QRadioButton" name="weaponSpecificNoneRadioButton">
+         <property name="text">
+          <string>None</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="1" column="2">
+     <widget class="QGroupBox" name="kitchenBox">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="title">
+       <string>Kitchen</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_10">
+       <item row="0" column="0">
+        <widget class="QRadioButton" name="AuSKitchenRadioButton">
+         <property name="text">
+          <string>AuS</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QRadioButton" name="AuLKitchenRadioButton">
+         <property name="text">
+          <string>AuL</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QRadioButton" name="kitchenNoneRadioButton">
+         <property name="text">
+          <string>None</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="1" column="3" colspan="2">
+     <widget class="QGroupBox" name="hitzonesGroupBox">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>215</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="title">
+       <string>Hitzones</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_13">
+       <item row="1" column="1">
+        <widget class="QSpinBox" name="eleHitzoneSpinBox"/>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="eleHitzoneTextLabel">
+         <property name="text">
+          <string>Ele</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="rawHitzoneTextLabel">
+         <property name="text">
+          <string>Raw</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QSpinBox" name="rawHitzoneSpinBox"/>
+       </item>
+       <item row="2" column="0">
+        <widget class="QCheckBox" name="weaknessExploitCheckBox">
+         <property name="text">
+          <string>Weakness Exploit</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="1" column="5">
+     <widget class="QGroupBox" name="artilleryGroupBox">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="title">
+       <string>Artillery</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_14">
+       <item row="0" column="0">
+        <widget class="QRadioButton" name="artilleryNoviceRadioButton">
+         <property name="text">
+          <string>Artillery No&amp;vice</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QRadioButton" name="artilleryExpertRadioButton">
+         <property name="text">
+          <string>Artillery Expert</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QRadioButton" name="artilleryGodRadioButton">
+         <property name="text">
+          <string>Artillery God</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QRadioButton" name="artilleryNoneRadioButton">
+         <property name="text">
+          <string>None</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="1" column="6" rowspan="2">
+     <widget class="QGroupBox" name="otherBox">
+      <property name="minimumSize">
+       <size>
+        <width>140</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="title">
+       <string>Other</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_15">
+       <item row="1" column="0">
+        <widget class="QCheckBox" name="checkBox">
+         <property name="text">
+          <string>Ammo Up</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QCheckBox" name="criticalDrawCheckBox">
+         <property name="text">
+          <string>Critical Draw</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QCheckBox" name="powerCharmCheckBox">
+         <property name="text">
+          <string>Power Charm</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QCheckBox" name="powerTalonCheckBox">
+         <property name="text">
+          <string>Power Talon</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QCheckBox" name="sharpnessCheckBox">
+         <property name="text">
+          <string>Sharpness+1</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QCheckBox" name="criticalElementCheckBox">
+         <property name="text">
+          <string>Critical Element</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="2" column="2">
+     <widget class="QGroupBox" name="seedPillBox">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>90</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="title">
+       <string>Might Item</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_9">
+       <item row="0" column="0">
+        <widget class="QRadioButton" name="mightSeedRadioButton">
+         <property name="text">
+          <string>Seed</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QRadioButton" name="mightPillRadioButton">
+         <property name="text">
+          <string>Pill</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QRadioButton" name="mightNoneRadioButton">
+         <property name="text">
+          <string>None</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="2" column="3">
+     <widget class="QGroupBox" name="dangerBox">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>90</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="title">
+       <string>Danger</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_11">
+       <item row="0" column="0">
+        <widget class="QRadioButton" name="heroicsRadioButton">
+         <property name="text">
+          <string>Heroics</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QRadioButton" name="adrenaline2RadioButton">
+         <property name="text">
+          <string>Adrenaline</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QRadioButton" name="dangerNoneRadioButton">
+         <property name="text">
+          <string>None</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="2" column="4">
+     <widget class="QGroupBox" name="fortifyBox">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>90</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="title">
+       <string>Fortify</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_8">
+       <item row="0" column="0">
+        <widget class="QRadioButton" name="faint1RadioButton">
+         <property name="text">
+          <string>&amp;Cartx1</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QRadioButton" name="faint2RadioButton">
+         <property name="text">
+          <string>Cart&amp;x2</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QRadioButton" name="fortifyNoneRadioButton">
+         <property name="text">
+          <string>&amp;None</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="2" column="5">
+     <widget class="QGroupBox" name="groupBox">
+      <property name="title">
+       <string>Wystone</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_19">
+       <item row="0" column="0">
+        <widget class="QCheckBox" name="wyvernStoneRawCheckBox">
+         <property name="text">
+          <string>Raw Damage</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QCheckBox" name="wyvernStoneEleCheckBox">
+         <property name="text">
+          <string>Elemental Damage</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QGroupBox" name="motionValueGroupBox">
+      <property name="minimumSize">
+       <size>
+        <width>200</width>
+        <height>180</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="title">
+       <string>Motion Value</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_18">
+       <item row="0" column="0" alignment="Qt::AlignHCenter">
+        <widget class="QLabel" name="motionValueStringLabel">
+         <property name="text">
+          <string>[0]</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QListWidget" name="motionValueListWidget"/>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="3" column="2" colspan="3">
+     <widget class="QTabWidget" name="damageTabWidget">
+      <property name="minimumSize">
+       <size>
+        <width>250</width>
+        <height>150</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="displayBasicTab">
+       <attribute name="title">
+        <string>Tab 1</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_16">
+        <item row="1" column="0">
+         <widget class="QLabel" name="rawDamageLabel">
+          <property name="text">
+           <string>Raw Damage</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="totalDamageLabel">
+          <property name="text">
+           <string>Total Damage</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1" alignment="Qt::AlignRight">
+         <widget class="QLabel" name="totalDamageFloatLabel">
+          <property name="text">
+           <string>0.00</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1" alignment="Qt::AlignRight">
+         <widget class="QLabel" name="eleDamageFloatLabel">
+          <property name="text">
+           <string>0.00</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="elementalDamageLabel">
+          <property name="text">
+           <string>Element Damage</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1" alignment="Qt::AlignRight">
+         <widget class="QLabel" name="rawDamageFloatLabel">
+          <property name="text">
+           <string>0.00</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0" colspan="2">
+         <widget class="QPushButton" name="caclulatePushButton">
+          <property name="text">
+           <string>Calculate</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </widget>
-     </item>
-     <item row="0" column="0">
-      <widget class="QGroupBox" name="groupBox_2">
-       <property name="minimumSize">
-        <size>
-         <width>160</width>
-         <height>35</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>180</width>
-         <height>35</height>
-        </size>
-       </property>
-       <property name="title">
-        <string/>
-       </property>
-       <widget class="QPushButton" name="removeWeaponPushButton">
-        <property name="geometry">
-         <rect>
-          <x>90</x>
-          <y>10</y>
-          <width>65</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>65</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>65</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>Remove</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="addWeaponPushButton">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>10</y>
-          <width>65</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>65</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>65</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>Add</string>
-        </property>
-       </widget>
+      <widget class="QWidget" name="displayAdvancedTab">
+       <attribute name="title">
+        <string>Tab 2</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_20">
+        <item row="0" column="0" colspan="2" alignment="Qt::AlignHCenter">
+         <widget class="QLabel" name="motionValueNameLabel">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="numberOfAttacksLabel">
+          <property name="text">
+           <string>Number of Attacks:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1" alignment="Qt::AlignRight">
+         <widget class="QLabel" name="numAttacksLabel">
+          <property name="text">
+           <string>0</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Average Raw Damage Per:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1" alignment="Qt::AlignRight">
+         <widget class="QLabel" name="averageRawDamagePerLabel">
+          <property name="text">
+           <string>0</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>Average Ele Damage Per:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1" alignment="Qt::AlignRight">
+         <widget class="QLabel" name="averageEleDamagePerLabel">
+          <property name="text">
+           <string>0</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="label_5">
+          <property name="text">
+           <string>Average Total Damage Per:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1" alignment="Qt::AlignRight">
+         <widget class="QLabel" name="averageTotalNumberPerLabel">
+          <property name="text">
+           <string>0</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QTabWidget" name="damageTabWidget">
-    <property name="geometry">
-     <rect>
-      <x>420</x>
-      <y>440</y>
-      <width>271</width>
-      <height>171</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>250</width>
-      <height>150</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>16777215</width>
-      <height>16777215</height>
-     </size>
-    </property>
-    <property name="currentIndex">
-     <number>0</number>
-    </property>
-    <widget class="QWidget" name="displayBasicTab">
-     <attribute name="title">
-      <string>Tab 1</string>
-     </attribute>
-     <layout class="QGridLayout" name="gridLayout_16">
-      <item row="1" column="0">
-       <widget class="QLabel" name="rawDamageLabel">
-        <property name="text">
-         <string>Raw Damage</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="0">
-       <widget class="QLabel" name="totalDamageLabel">
-        <property name="text">
-         <string>Total Damage</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1" alignment="Qt::AlignRight">
-       <widget class="QLabel" name="totalDamageFloatLabel">
-        <property name="text">
-         <string>0.00</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1" alignment="Qt::AlignRight">
-       <widget class="QLabel" name="eleDamageFloatLabel">
-        <property name="text">
-         <string>0.00</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="elementalDamageLabel">
-        <property name="text">
-         <string>Element Damage</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1" alignment="Qt::AlignRight">
-       <widget class="QLabel" name="rawDamageFloatLabel">
-        <property name="text">
-         <string>0.00</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0" colspan="2">
-       <widget class="QPushButton" name="caclulatePushButton">
-        <property name="text">
-         <string>Calculate</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-    <widget class="QWidget" name="displayAdvancedTab">
-     <attribute name="title">
-      <string>Tab 2</string>
-     </attribute>
-     <layout class="QGridLayout" name="gridLayout_20">
-      <item row="0" column="0" colspan="2" alignment="Qt::AlignHCenter">
-       <widget class="QLabel" name="motionValueNameLabel">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="numberOfAttacksLabel">
-        <property name="text">
-         <string>Number of Attacks:</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1" alignment="Qt::AlignRight">
-       <widget class="QLabel" name="numAttacksLabel">
-        <property name="text">
-         <string>0</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>Average Raw Damage Per:</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1" alignment="Qt::AlignRight">
-       <widget class="QLabel" name="averageRawDamagePerLabel">
-        <property name="text">
-         <string>0</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0">
-       <widget class="QLabel" name="label_3">
-        <property name="text">
-         <string>Average Ele Damage Per:</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="1" alignment="Qt::AlignRight">
-       <widget class="QLabel" name="averageEleDamagePerLabel">
-        <property name="text">
-         <string>0</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="0">
-       <widget class="QLabel" name="label_5">
-        <property name="text">
-         <string>Average Total Damage Per:</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="1" alignment="Qt::AlignRight">
-       <widget class="QLabel" name="averageTotalNumberPerLabel">
-        <property name="text">
-         <string>0</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </widget>
-   <widget class="QGroupBox" name="fortifyBox">
-    <property name="geometry">
-     <rect>
-      <x>640</x>
-      <y>320</y>
-      <width>80</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>0</width>
-      <height>90</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>16777215</width>
-      <height>16777215</height>
-     </size>
-    </property>
-    <property name="title">
-     <string>Fortify</string>
-    </property>
-    <layout class="QGridLayout" name="gridLayout_8">
-     <item row="0" column="0">
-      <widget class="QRadioButton" name="faint1RadioButton">
-       <property name="text">
-        <string>&amp;Cartx1</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QRadioButton" name="faint2RadioButton">
-       <property name="text">
-        <string>Cart&amp;x2</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QRadioButton" name="fortifyNoneRadioButton">
-       <property name="text">
-        <string>&amp;None</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QGroupBox" name="kitchenBox">
-    <property name="geometry">
-     <rect>
-      <x>400</x>
-      <y>200</y>
-      <width>101</width>
-      <height>111</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>0</width>
-      <height>0</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>16777215</width>
-      <height>16777215</height>
-     </size>
-    </property>
-    <property name="title">
-     <string>Kitchen</string>
-    </property>
-    <layout class="QGridLayout" name="gridLayout_10">
-     <item row="0" column="0">
-      <widget class="QRadioButton" name="AuSKitchenRadioButton">
-       <property name="text">
-        <string>AuS</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QRadioButton" name="AuLKitchenRadioButton">
-       <property name="text">
-        <string>AuL</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QRadioButton" name="kitchenNoneRadioButton">
-       <property name="text">
-        <string>None</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QGroupBox" name="hitzonesGroupBox">
-    <property name="geometry">
-     <rect>
-      <x>520</x>
-      <y>200</y>
-      <width>201</width>
-      <height>111</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>0</width>
-      <height>0</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>215</width>
-      <height>16777215</height>
-     </size>
-    </property>
-    <property name="title">
-     <string>Hitzones</string>
-    </property>
-    <layout class="QGridLayout" name="gridLayout_13">
-     <item row="1" column="1">
-      <widget class="QSpinBox" name="eleHitzoneSpinBox"/>
-     </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="eleHitzoneTextLabel">
-       <property name="text">
-        <string>Ele</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0">
-      <widget class="QLabel" name="rawHitzoneTextLabel">
-       <property name="text">
-        <string>Raw</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QSpinBox" name="rawHitzoneSpinBox"/>
-     </item>
-     <item row="2" column="0">
-      <widget class="QCheckBox" name="weaknessExploitCheckBox">
-       <property name="text">
-        <string>Weakness Exploit</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QGroupBox" name="artilleryGroupBox">
-    <property name="geometry">
-     <rect>
-      <x>740</x>
-      <y>200</y>
-      <width>141</width>
-      <height>111</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>0</width>
-      <height>0</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>16777215</width>
-      <height>16777215</height>
-     </size>
-    </property>
-    <property name="title">
-     <string>Artillery</string>
-    </property>
-    <layout class="QGridLayout" name="gridLayout_14">
-     <item row="0" column="0">
-      <widget class="QRadioButton" name="artilleryNoviceRadioButton">
-       <property name="text">
-        <string>Artillery No&amp;vice</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QRadioButton" name="artilleryExpertRadioButton">
-       <property name="text">
-        <string>Artillery Expert</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QRadioButton" name="artilleryGodRadioButton">
-       <property name="text">
-        <string>Artillery God</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QRadioButton" name="artilleryNoneRadioButton">
-       <property name="text">
-        <string>None</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QGroupBox" name="dangerBox">
-    <property name="geometry">
-     <rect>
-      <x>520</x>
-      <y>320</y>
-      <width>101</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>0</width>
-      <height>90</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>16777215</width>
-      <height>16777215</height>
-     </size>
-    </property>
-    <property name="title">
-     <string>Danger</string>
-    </property>
-    <layout class="QGridLayout" name="gridLayout_11">
-     <item row="0" column="0">
-      <widget class="QRadioButton" name="heroicsRadioButton">
-       <property name="text">
-        <string>Heroics</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QRadioButton" name="adrenaline2RadioButton">
-       <property name="text">
-        <string>Adrenaline</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QRadioButton" name="dangerNoneRadioButton">
-       <property name="text">
-        <string>None</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QGroupBox" name="seedPillBox">
-    <property name="geometry">
-     <rect>
-      <x>400</x>
-      <y>320</y>
-      <width>101</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>0</width>
-      <height>90</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>16777215</width>
-      <height>16777215</height>
-     </size>
-    </property>
-    <property name="title">
-     <string>Might Item</string>
-    </property>
-    <layout class="QGridLayout" name="gridLayout_9">
-     <item row="0" column="0">
-      <widget class="QRadioButton" name="mightSeedRadioButton">
-       <property name="text">
-        <string>Seed</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QRadioButton" name="mightPillRadioButton">
-       <property name="text">
-        <string>Pill</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QRadioButton" name="mightNoneRadioButton">
-       <property name="text">
-        <string>None</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QGroupBox" name="weaponGroupBox">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>200</y>
-      <width>200</width>
-      <height>221</height>
-     </rect>
-    </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>0</width>
-      <height>0</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>16777215</width>
-      <height>16777215</height>
-     </size>
-    </property>
-    <property name="title">
-     <string>Weapon</string>
-    </property>
-    <layout class="QGridLayout" name="gridLayout_7">
-     <item row="0" column="0">
-      <widget class="QListWidget" name="weapon_list_widget"/>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QGroupBox" name="groupBox">
-    <property name="geometry">
-     <rect>
-      <x>740</x>
-      <y>320</y>
-      <width>141</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <property name="title">
-     <string>Wystone</string>
-    </property>
-    <layout class="QGridLayout" name="gridLayout_19">
-     <item row="0" column="0">
-      <widget class="QCheckBox" name="wyvernStoneRawCheckBox">
-       <property name="text">
-        <string>Raw Damage</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QCheckBox" name="wyvernStoneEleCheckBox">
-       <property name="text">
-        <string>Elemental Damage</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
+     </widget>
+    </item>
+    <item row="3" column="6">
+     <widget class="QGroupBox" name="customWeaponGroupBox">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="title">
+       <string>Custom Weapons</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_17">
+       <item row="1" column="0">
+        <widget class="QListWidget" name="customWeaponsListWidget">
+         <item>
+          <property name="text">
+           <string>None</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QGroupBox" name="groupBox_2">
+         <property name="minimumSize">
+          <size>
+           <width>160</width>
+           <height>35</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>180</width>
+           <height>35</height>
+          </size>
+         </property>
+         <property name="title">
+          <string/>
+         </property>
+         <widget class="QPushButton" name="removeWeaponPushButton">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>10</y>
+            <width>65</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>65</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>65</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Delete All</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="addWeaponPushButton">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>65</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>65</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>65</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Add</string>
+          </property>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1100</width>
+     <width>1025</width>
      <height>21</height>
     </rect>
    </property>

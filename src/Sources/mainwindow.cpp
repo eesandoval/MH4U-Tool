@@ -6,6 +6,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->defense_calculator_button->setDisabled(true);
     this->damageCalculatorWindow = new damagecalculatorwindow(this);
     this->defenseCalculatorWindow = new defensecalculatorwindow(this);
     this->teostra_timer_window = new teostratimerwindow(this);
@@ -26,15 +27,14 @@ void MainWindow::on_damage_calculator_button_clicked()
     damageCalculatorWindow->setFixedSize(damageCalculatorWindow->size());
 }
 
-
-void MainWindow::on_damage_calculator_button_2_clicked()
-{
-    defenseCalculatorWindow = new defensecalculatorwindow(this);
-    defenseCalculatorWindow->show();
-}
-
 void MainWindow::on_teostra_timer_button_clicked()
 {
     teostra_timer_window = new teostratimerwindow(this);
     teostra_timer_window->show();
+}
+
+void MainWindow::on_defense_calculator_button_clicked()
+{
+    defenseCalculatorWindow = new defensecalculatorwindow(this);
+    defenseCalculatorWindow->show();
 }
