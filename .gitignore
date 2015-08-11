@@ -29,6 +29,7 @@ ui_*
 
 # user files
 *.pro.*
+MH4U-Tool.pro.user
 
 # object files
 object_script.*
